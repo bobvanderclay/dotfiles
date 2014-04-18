@@ -50,7 +50,7 @@ fi
 ######################################################################
 homesick clone takitapart/dotfiles-dev
 homesick symlink dotfiles-dev
-sh ~/.homesick/repos/dotfiles-dev/setup/test.sh
+bash ~/.homesick/repos/dotfiles-dev/setup/test.sh
 
 ######################################################################
 # Homebrew.
