@@ -48,8 +48,8 @@ echo "Accept Github fingerprint: (16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:4
 ######################################################################
 # Homesick, which will manage our dotfiles.
 ######################################################################
-homesick clone takitapart/dotfiles-dev
-homesick symlink dotfiles-dev
+homesick clone takitapart/dotfiles
+homesick symlink dotfiles
 
 ######################################################################
 # Setup scripts.
@@ -58,17 +58,17 @@ homesick symlink dotfiles-dev
 ######################################################################
 # Homebrew.
 ######################################################################
-bash ~/.homesick/repos/dotfiles-dev/setup/brew.sh
+bash ~/.homesick/repos/dotfiles/setup/brew.sh
 
 ######################################################################
 # OSX Settings.
 ######################################################################
-bash ~/.homesick/repos/dotfiles-dev/setup/osx.sh
+bash ~/.homesick/repos/dotfiles/setup/osx.sh
 
 ######################################################################
 # Dev
 ######################################################################
-bash ~/.homesick/repos/dotfiles-dev/setup/dev.sh
+bash ~/.homesick/repos/dotfiles/setup/dev.sh
 
 ######################################################################
 # Change default shell to fish

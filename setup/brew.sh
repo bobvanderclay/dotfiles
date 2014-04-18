@@ -54,6 +54,7 @@ echo "Installing essential software..."
   brew cask install fontexplorer-x-pro
   brew cask install github
   brew cask install google-chrome
+  brew cask install hazel
   brew cask install iterm2
   brew cask install mamp
   brew cask install radiant-player

@@ -1,12 +1,18 @@
 ## Usage ##
 
-    bash <(curl -s https://raw.github.com/takitapart/dotfiles-dev/master/bootstrap.sh)
+Install the command-line tools.
+
+    xcode-select --install
+
+Run the bootstrap script, which will install everything else.
+
+    bash <(curl -s https://raw.github.com/takitapart/dotfiles/master/bootstrap.sh)
 
 
 ## Testing ##
 
-    homesick unlink dotfiles-dev
-    rm -rf ~/.homesick/repos/dotfiles-dev
+    homesick unlink dotfiles
+    rm -rf ~/.homesick/repos/dotfiles
 
 
 ## References ##
