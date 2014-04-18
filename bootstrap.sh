@@ -11,9 +11,6 @@ sudo -v
 trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 set -e
 
-fancy_echo() {
-  printf "\n%b\n" "$1"
-}
 
 # Check that Xcode command line tools are already there
 clang_path=`which clang`
@@ -26,26 +23,26 @@ fi
 ######################################################################
 # Git.
 ######################################################################
-# fancy_echo " What's your Github username... (eg. takitapart)"
+# echo " What's your Github username... (eg. takitapart)"
 #   read GITHUB_USERNAME
-# fancy_echo " What's your Github e-mail...   (eg. takitapart@gmail.com)"
+# echo " What's your Github e-mail...   (eg. takitapart@gmail.com)"
 #   read GITHUB_MAIL
 #   
-# fancy_echo "Checking for SSH key, generating one if it doesn't exist ..."
+# echo "Checking for SSH key, generating one if it doesn't exist ..."
 #   [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa -C "$GITHUB_MAIL" -f ~/.ssh/id_rsa
 # 
-# fancy_echo "Copying public key to clipboard. Paste it into your Github account ..."
+# echo "Copying public key to clipboard. Paste it into your Github account ..."
 #   [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
 #   open https://github.com/settings/ssh
 # 
-# fancy_echo "Setting git global defaults..."
+# echo "Setting git global defaults..."
 #   git config --global user.name $GITHUB_USERNAME
 #   git config --global user.email $GITHUB_MAIL
 #   git config --global push.default simple
 #   git config --global core.excludesfile $DIR/git/.gitignore_global
 #   git config --global color.ui true
 # 
-# fancy_echo "Accept Github fingerprint: (16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48)"
+# echo "Accept Github fingerprint: (16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48)"
 #   ssh -T git@github.com
 
 ######################################################################
@@ -53,7 +50,7 @@ fi
 ######################################################################
 homesick clone takitapart/dotfiles-dev
 homesick symlink dotfiles-dev
-homesick exec dotfiles-dev setup/test.sh
+~/.homesick/repos/dotfiles-dev/setup/test.sh
 
 ######################################################################
 # Homebrew.
@@ -61,36 +58,36 @@ homesick exec dotfiles-dev setup/test.sh
 # brew_path=`which brew`
 # if [[ ! -f $brew_path ]]
 # then 
-#   fancy_echo "Installing Homebrew, a good OS X package manager..."
+#   echo "Installing Homebrew, a good OS X package manager..."
 #     ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
 # fi
 # 
-# fancy_echo "Putting Homebrew location earlier in PATH ..."
+# echo "Putting Homebrew location earlier in PATH ..."
 #   # echo "export PATH='/usr/local/bin:\$PATH'" >> ~/.zshrc
 #   # export PATH=/usr/local/bin:$PATH #temporary on bash
 # 
-# fancy_echo "Upda-grading Homebrew..."
+# echo "Upda-grading Homebrew..."
 #   brew update
 #   brew upgrade
 
-fancy_echo "Hipsterizing your terminal with homebrewed zsh + Oh my zsh!"
+echo "Hipsterizing your terminal with homebrewed zsh + Oh my zsh!"
   # brew install zsh
   # curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
-fancy_echo "Installing homebrew-cask... (easy .app install automation)"
+echo "Installing homebrew-cask... (easy .app install automation)"
   # brew tap phinze/homebrew-cask
   # brew install brew-cask
   # mkdir -p /usr/local/Library/Taps/my-casks/
   # ln -s $SCRIPT_DIR/Casks /usr/local/Library/Taps/my-casks/Casks
 
-fancy_echo "Updating some tools, adding some others..."
+echo "Updating some tools, adding some others..."
   # brew install coreutils
   # echo "export PATH=/usr/local/opt/coreutils/libexec/gnubin:\$PATH" >> ~/.zshrc
   # echo "export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:\$MANPATH" >> ~/.zshrc
   # brew install git
   # brew install unrar
 
-fancy_echo "Installing essential software..."
+echo "Installing essential software..."
   #export HOMEBREW_CASK_OPTS="--appdir=/Applications"
   # brew cask install dropbox
   # brew cask install the-unarchiver
