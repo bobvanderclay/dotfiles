@@ -26,51 +26,52 @@ fi
 ######################################################################
 # Git.
 ######################################################################
-fancy_echo " What's your Github username... (eg. takitapart)"
-  read GITHUB_USERNAME
-fancy_echo " What's your Github e-mail...   (eg. takitapart@gmail.com)"
-  read GITHUB_MAIL
-  
-fancy_echo "Checking for SSH key, generating one if it doesn't exist ..."
-  [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa -C "$GITHUB_MAIL" -f ~/.ssh/id_rsa
-
-fancy_echo "Copying public key to clipboard. Paste it into your Github account ..."
-  [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
-  open https://github.com/settings/ssh
-
-fancy_echo "Setting git global defaults..."
-  git config --global user.name $GITHUB_USERNAME
-  git config --global user.email $GITHUB_MAIL
-  git config --global push.default simple
-  git config --global core.excludesfile $DIR/git/.gitignore_global
-  git config --global color.ui true
-
-fancy_echo "Accept Github fingerprint: (16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48)"
-  ssh -T git@github.com
+# fancy_echo " What's your Github username... (eg. takitapart)"
+#   read GITHUB_USERNAME
+# fancy_echo " What's your Github e-mail...   (eg. takitapart@gmail.com)"
+#   read GITHUB_MAIL
+#   
+# fancy_echo "Checking for SSH key, generating one if it doesn't exist ..."
+#   [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa -C "$GITHUB_MAIL" -f ~/.ssh/id_rsa
+# 
+# fancy_echo "Copying public key to clipboard. Paste it into your Github account ..."
+#   [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
+#   open https://github.com/settings/ssh
+# 
+# fancy_echo "Setting git global defaults..."
+#   git config --global user.name $GITHUB_USERNAME
+#   git config --global user.email $GITHUB_MAIL
+#   git config --global push.default simple
+#   git config --global core.excludesfile $DIR/git/.gitignore_global
+#   git config --global color.ui true
+# 
+# fancy_echo "Accept Github fingerprint: (16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48)"
+#   ssh -T git@github.com
 
 ######################################################################
 # Homesick, which will manage our dotfiles.
 ######################################################################
-sudo
 homesick clone takitapart/dotfiles-dev
+homesick symlink dotfiles-dev
+homesick exec dotfiles-dev setup/test.sh
 
 ######################################################################
 # Homebrew.
 ######################################################################
-brew_path=`which brew`
-if [[ ! -f $brew_path ]]
-then 
-  fancy_echo "Installing Homebrew, a good OS X package manager..."
-    ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
-fi
-
-fancy_echo "Putting Homebrew location earlier in PATH ..."
-  # echo "export PATH='/usr/local/bin:\$PATH'" >> ~/.zshrc
-  # export PATH=/usr/local/bin:$PATH #temporary on bash
-
-fancy_echo "Upda-grading Homebrew..."
-  brew update
-  brew upgrade
+# brew_path=`which brew`
+# if [[ ! -f $brew_path ]]
+# then 
+#   fancy_echo "Installing Homebrew, a good OS X package manager..."
+#     ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
+# fi
+# 
+# fancy_echo "Putting Homebrew location earlier in PATH ..."
+#   # echo "export PATH='/usr/local/bin:\$PATH'" >> ~/.zshrc
+#   # export PATH=/usr/local/bin:$PATH #temporary on bash
+# 
+# fancy_echo "Upda-grading Homebrew..."
+#   brew update
+#   brew upgrade
 
 fancy_echo "Hipsterizing your terminal with homebrewed zsh + Oh my zsh!"
   # brew install zsh
