@@ -22,4 +22,4 @@ pip install git+git://github.com/Lokaltog/powerline
 # ln -s ~/Dropbox/Library/Application\ Support/Sublime\ Text\ 3/Packages ./Packages
 
 # vim
-git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
