@@ -4,6 +4,7 @@ gem update --system
 gem install ghi
 gem install compass.takitapart.framework
   
+npm install -g bower
 npm install -g express
 npm install -g docpad
 
