@@ -73,6 +73,7 @@ bash ~/.homesick/repos/dotfiles/setup/dev.sh
 ######################################################################
 # Change default shell to fish
 ######################################################################
-echo "Changing default shell."
+echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+echo "Changing default shell to fish."
 chsh -s /usr/local/bin/fish
 
