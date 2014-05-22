@@ -30,6 +30,7 @@ echo "Updating some tools, adding some others..."
   brew install coreutils
   # echo "export PATH=/usr/local/opt/coreutils/libexec/gnubin:\$PATH" >> ~/.zshrc
   # echo "export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:\$MANPATH" >> ~/.zshrc
+  brew install python
   brew install vim --with-python --with-ruby --with-perl
   brew install fish
   brew install git
