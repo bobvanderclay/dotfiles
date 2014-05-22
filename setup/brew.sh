@@ -50,6 +50,7 @@ echo "Installing essential software..."
   
   brew cask install adobe-creative-cloud
   brew cask install alfred
+  brew cask alfred link 
   brew cask install calibre
   brew cask install crashplan
   brew cask install daisydisk
