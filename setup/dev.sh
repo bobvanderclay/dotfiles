@@ -7,6 +7,10 @@ gem install compass.takitapart.framework
 npm install -g express
 npm install -g docpad
 
+# Powerline
+pip install git+git://github.com/Lokaltog/powerline
+
+
 # Sublime Text 3
 # install sublime. run once.
 # cd ~/Library/Application\ Support/Sublime\ Text\ 3
