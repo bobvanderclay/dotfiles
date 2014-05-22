@@ -15,10 +15,6 @@ echo "Upda-grading Homebrew..."
   brew update
   brew upgrade
 
-# echo "Hipsterizing your terminal with homebrewed zsh + Oh my zsh!"
-  # brew install zsh
-  # curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-
 echo "Installing homebrew-cask... (easy .app install automation)"
   brew tap phinze/homebrew-cask
   brew install brew-cask
