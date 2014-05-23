@@ -37,7 +37,6 @@ echo "Updating some tools, adding some others..."
   brew install unrar
   brew install hub
   brew install tmux
-  brew install macvim
   brew install storm
   brew install redis
 
