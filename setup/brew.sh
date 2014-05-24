@@ -44,8 +44,9 @@ echo "Installing essential software..."
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
   
   brew cask install adobe-creative-cloud
-  brew cask install alfred
-  brew cask alfred link 
+  brew cask install adobe-photoshop-lightroom
+  brew cask install alfred 
+  brew cask alfred link # Allows alfred to locate cask-installed apps.
   brew cask install calibre
   brew cask install crashplan
   brew cask install daisydisk
@@ -69,6 +70,7 @@ echo "Installing essential software..."
   brew cask install the-unarchiver
   brew cask install transmission
   brew cask install vlc
+  brew cask install vmware-fusion
   # brew cask install bartender
   # brew cask install bettertouchtool
   brew cask install slack
