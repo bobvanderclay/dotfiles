@@ -71,8 +71,6 @@ echo "Installing essential software..."
   brew cask install transmission
   brew cask install vlc
   brew cask install vmware-fusion
-  # brew cask install bartender
-  # brew cask install bettertouchtool
   brew cask install slack
   
 echo "Cleaning up..."
