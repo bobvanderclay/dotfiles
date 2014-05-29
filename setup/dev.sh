@@ -2,6 +2,7 @@
 
 gem update --system
 gem install ghi
+gem install sass
 gem install compass
 gem install compass.takitapart.framework
 
