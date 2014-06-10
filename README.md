@@ -1,6 +1,6 @@
 ## Usage ##
 
-Install the command-line tools.
+Install the command-line tools. 
 
     xcode-select --install
 
@@ -19,3 +19,7 @@ Run the bootstrap script, which will install everything else.
 
   - [fBootstrap](https://github.com/fbeeper/fBootstrap).
   - [Laptop](https://github.com/thoughtbot/laptop). [LICENSE](license).
+
+## More
+
+Testing using Linen to edit this file.
