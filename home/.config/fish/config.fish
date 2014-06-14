@@ -13,6 +13,9 @@ function fish_prompt
  set_color normal
 end
 
+# Powerline
+set fish_function_path $fish_function_path "/usr/local/lib/python2.7/site-packages/powerline/bindings/fish"
+powerline-setup
 
 alias l 'ls -la'
 alias g git
