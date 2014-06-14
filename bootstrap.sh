@@ -39,7 +39,7 @@ echo "Setting git global defaults..."
   git config --global user.name $GITHUB_USERNAME
   git config --global user.email $GITHUB_MAIL
   git config --global push.default simple
-  git config --global core.excludesfile $DIR/git/.gitignore_global
+  git config --global core.excludesfile ~/.gitignore
   git config --global color.ui true
 
 echo "Accept Github fingerprint: (16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48)"
@@ -73,6 +73,7 @@ bash ~/.homesick/repos/dotfiles/setup/dev.sh
 ######################################################################
 # Change default shell to fish
 ######################################################################
-echo "Changing default shell."
+echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+echo "Changing default shell to fish."
 chsh -s /usr/local/bin/fish
 

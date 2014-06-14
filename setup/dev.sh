@@ -2,10 +2,17 @@
 
 gem update --system
 gem install ghi
+gem install sass
+gem install compass
 gem install compass.takitapart.framework
-  
+
+npm install -g bower
 npm install -g express
 npm install -g docpad
+
+# Powerline
+pip install git+git://github.com/Lokaltog/powerline
+
 
 # Sublime Text 3
 # install sublime. run once.
@@ -17,4 +24,4 @@ npm install -g docpad
 # ln -s ~/Dropbox/Library/Application\ Support/Sublime\ Text\ 3/Packages ./Packages
 
 # vim
-git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
