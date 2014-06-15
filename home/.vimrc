@@ -18,6 +18,7 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 Plugin 'tpope/vim-fugitive'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
@@ -73,9 +74,12 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
+"" Keyboard overrides
+inoremap jj <ESC>
+nnoremap ; :      " Make commands easier.
 "" Movement 
-nmap j gj
-nmap k gk
+nnoremap j gj
+nnoremap k gk
 
 "" Plugins
 
