@@ -1,0 +1,1 @@
+/Users/bob/.zprezto/runcoms/zlogout
