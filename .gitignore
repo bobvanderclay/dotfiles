@@ -1,1 +1,5 @@
+home/.vim/backup/**/*
+home/.vim/swap/**/*
+home/.vim/undo/**/*
 home/.vim/bundle/**
+!.gitignore

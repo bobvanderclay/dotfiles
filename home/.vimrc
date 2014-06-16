@@ -48,6 +48,7 @@ augroup myvimrc
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
+"" Theme
 " https://github.com/Lokaltog/powerline/blob/develop/docs/source/installation/troubleshooting-common.rst#my-vim-statusline-is-hiddenonly-appears-in-split-windows
 set laststatus=2
 syntax enable
@@ -59,7 +60,6 @@ set title
 set scrolloff=3
 
 set nocompatible                " choose no compatibility with legacy vi
-syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
@@ -75,6 +75,11 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
+
+"" Backups and recovery
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 "" Keyboard overrides
 inoremap jj <ESC>
