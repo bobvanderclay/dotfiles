@@ -12,3 +12,6 @@ fi
 
 # Customize to your needs...
 
+# Aliases
+alias dev='cd ~/Development'
+
