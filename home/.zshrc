@@ -12,3 +12,6 @@ fi
 
 # Customize to your needs...
 
+eval `dircolors ~/.dircolors` 
+
+export TERM=xterm-256color
