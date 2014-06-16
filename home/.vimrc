@@ -9,8 +9,6 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -93,7 +91,13 @@ nnoremap k gk
 "" CoffeeScript
 autocmd FileType litcoffee runtime ftplugin/coffee.vim
 
+"" NERDTree
+let g:NERDTreeShowHidden=1
+
 "" Airline
+set ttimeoutlen=50  " Fix ESC key delay.
+let g:airline_powerline_fonts = 1
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
