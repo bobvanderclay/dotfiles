@@ -12,6 +12,14 @@ fi
 
 # Customize to your needs...
 
+# Source Promptline.
+if [ -f ~/.zsh/promptline.sh ]; then
+  source ~/.zsh/promptline.sh
+fi
+
+# Needed in zsh < 5.0.5 to prevent space at end of RPROMPT.
+ZLE_RPROMPT_INDENT=0 
+
 # Aliases
 alias dev='cd ~/Development'
 

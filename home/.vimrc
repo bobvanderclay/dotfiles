@@ -22,7 +22,9 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'bling/vim-airline'
+Bundle 'edkolev/promptline.vim'
+Bundle 'edkolev/tmuxline.vim'
 Bundle 'kchmck/vim-coffee-script'
 
 " All of your Plugins must be added before the following line
@@ -76,7 +78,7 @@ set smartcase                   " ... unless they contain at least one capital l
 
 "" Keyboard overrides
 inoremap jj <ESC>
-nnoremap ; :      " Make commands easier.
+
 "" Movement 
 nnoremap j gj
 nnoremap k gk
@@ -86,3 +88,9 @@ nnoremap k gk
 "" CoffeeScript
 autocmd FileType litcoffee runtime ftplugin/coffee.vim
 
+"" Promptline
+let g:promptline_preset = {
+        \'a' : [ '$vim_mode' ],
+        \'b' : [ promptline#slices#cwd() ],
+        \'c' : [ promptline#slices#vcs_branch(), promptline#slices#git_status(), promptline#slices#jobs() ],
+        \'warn' : [ promptline#slices#last_exit_code(), promptline#slices#battery() ]}
