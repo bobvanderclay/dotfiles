@@ -93,9 +93,19 @@ nnoremap k gk
 "" CoffeeScript
 autocmd FileType litcoffee runtime ftplugin/coffee.vim
 
+"" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
 "" Promptline
+" To generate prompt script in the right location, run:
+" :PromptlineSnapshot ~/.zsh/promptline-prompt.sh 
 let g:promptline_preset = {
         \'a' : [ '$vim_mode' ],
-        \'b' : [ promptline#slices#cwd() ],
-        \'c' : [ promptline#slices#vcs_branch(), promptline#slices#git_status(), promptline#slices#jobs() ],
-        \'warn' : [ promptline#slices#last_exit_code(), promptline#slices#battery() ]}
+        \'b' : [ promptline#slices#user(), promptline#slices#host() ],
+        \'c' : [ promptline#slices#cwd() ],
+        \'warn' : [ promptline#slices#last_exit_code(),promptline#slices#battery() ],
+        \'y': [ promptline#slices#vcs_branch(), promptline#slices#git_status(), promptline#slices#jobs() ]
+        \}
+        

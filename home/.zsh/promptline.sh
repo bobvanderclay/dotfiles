@@ -1,7 +1,7 @@
 # Configuration settings for promptline
 
-vim_ins_mode="-- INSERT --"
-vim_cmd_mode="-- NORMAL --"
+vim_ins_mode="INSERT"
+vim_cmd_mode="NORMAL"
 vim_mode=$vim_ins_mode
 
 function zle-keymap-select {
