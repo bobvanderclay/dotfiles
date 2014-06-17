@@ -112,4 +112,9 @@ let g:promptline_preset = {
         \'warn' : [ promptline#slices#last_exit_code() ],
         \'y': [ promptline#slices#vcs_branch(), promptline#slices#git_status(), promptline#slices#jobs() ]
         \}
-        
+
+"" tmuxline.vim
+" To generate prompt script in the right location, run:
+" :Tmuxline airline
+" :TmuxlineSnapshot ~/.tmux/tmuxline-statusline
+
