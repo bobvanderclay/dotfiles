@@ -21,7 +21,8 @@ fi
 ZLE_RPROMPT_INDENT=0 
 # Fix ESC delay
 KEYTIMEOUT=1
+# Needed to force 256 color.
+export TERM="xterm-256color"
 
 # Aliases
 alias dev='cd ~/Development'
-alias tmux='tmux -2'

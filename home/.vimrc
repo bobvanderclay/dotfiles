@@ -48,6 +48,7 @@ augroup END
 
 "" Theme
 " https://github.com/Lokaltog/powerline/blob/develop/docs/source/installation/troubleshooting-common.rst#my-vim-statusline-is-hiddenonly-appears-in-split-windows
+set t_Co=256
 set laststatus=2
 syntax enable
 set background=dark
