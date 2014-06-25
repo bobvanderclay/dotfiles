@@ -24,4 +24,4 @@ KEYTIMEOUT=1
 
 # Aliases
 alias dev='cd ~/Development'
-
+alias tmux='tmux -2'
