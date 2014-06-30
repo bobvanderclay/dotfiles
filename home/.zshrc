@@ -12,6 +12,11 @@ fi
 
 # Customize to your needs...
 
+# Source homeschick.
+if [ -f ~/.homesick/repos/homeshick/homeshick.sh ]; then
+  source ~/.homesick/repos/homeshick/homeshick.sh
+fi
+
 # Source Promptline.
 if [ -f ~/.zsh/promptline.sh ]; then
   source ~/.zsh/promptline.sh
