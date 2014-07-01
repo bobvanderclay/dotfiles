@@ -1,9 +1,6 @@
 # Install vundle
 echo "Installing vundle..."
-if [ ! -d "~/.vim/bundle" ]; \
-then \
-  mkdir ~/.vim/bundle; \
-fi
+mkdir -p ~/.vim/bundle;
 if [ ! -d "~/.vim/bundle/vundle" ]; \
 then \
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim; \
