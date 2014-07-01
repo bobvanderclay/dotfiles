@@ -10,7 +10,7 @@ Install the command-line tools.
 
 Clone the repository.
 
-    git clone https://github.com/takitapart/dotfiles.git
+    git clone --recursive https://github.com/takitapart/dotfiles.git
 
 Run the install script.
 

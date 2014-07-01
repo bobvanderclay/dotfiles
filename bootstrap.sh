@@ -3,13 +3,13 @@
 DOTFILES_ROOT="`pwd`"
 
 # Process each directory.
-for folder in `find $DOTFILES_ROOT -mindepth 1 -maxdepth 1 -type d`
+for folder in `find $DOTFILES_ROOT -mindepth 1 -maxdepth 1 -type d` 
 do
 
   echo "Initializing: $folder"
 
   # Link dotfiles
-  for dotfile in `find $folder -name ".*" -mindepth 1 -maxdepth 1`
+  for dotfile in `find $folder -mindepth 1 -maxdepth 1 -name ".*"`
   do
     echo "Linking: "$(basename "$dotfile")
     ln -s $dotfile $HOME/$(basename "$dotfile")

@@ -107,13 +107,15 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 "" Promptline
 " To generate prompt script in the right location, run:
 " :PromptlineSnapshot ~/.zsh/promptline-prompt.sh 
-let g:promptline_preset = {
-        \'a' : [ '$vim_mode' ],
-        \'b' : [ promptline#slices#user(), promptline#slices#host() ],
-        \'c' : [ promptline#slices#cwd() ],
-        \'warn' : [ promptline#slices#last_exit_code() ],
-        \'y': [ promptline#slices#vcs_branch(), promptline#slices#git_status(), promptline#slices#jobs() ]
-        \}
+if exists("promptline*")
+  let g:promptline_preset = {
+          \'a' : [ '$vim_mode' ],
+          \'b' : [ promptline#slices#user(), promptline#slices#host() ],
+          \'c' : [ promptline#slices#cwd() ],
+          \'warn' : [ promptline#slices#last_exit_code() ],
+          \'y': [ promptline#slices#vcs_branch(), promptline#slices#git_status(), promptline#slices#jobs() ]
+          \}
+endif
 
 "" tmuxline.vim
 " To generate prompt script in the right location, run:
