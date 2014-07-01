@@ -1,0 +1,5 @@
+backup/**/*
+swap/**/*
+undo/**/*
+bundle/**
+!.gitignore

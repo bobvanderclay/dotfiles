@@ -1,5 +1,0 @@
-.vim/backup/**/*
-.vim/swap/**/*
-.vim/undo/**/*
-.vim/bundle/**
-!.gitignore
