@@ -19,7 +19,7 @@ do
   find $folder -name "install.sh" | while read installer
   do 
     echo "Running installer";
-    sh -x "${installer}" > /dev/null
+    sh "${installer}" > /dev/null
   done
 
 done
