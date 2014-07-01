@@ -1,6 +1,3 @@
-[submodule "home/.zprezto"]
-	path = home/.zprezto
+[submodule "zsh/.zprezto"]
+	path = zsh/.zprezto
 	url = https://github.com/takitapart/prezto.git
-[submodule "resources/powerline-fonts"]
-	path = resources/powerline-fonts
-	url = https://github.com/Lokaltog/powerline-fonts.git
