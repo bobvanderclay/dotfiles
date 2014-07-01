@@ -1,12 +1,21 @@
-## Usage ##
+## Requirements ##
+
+
 
 Install the command-line tools. 
 
     xcode-select --install
 
-Run the bootstrap script, which will install everything else.
+## Installation ##
 
-    bash <(curl -s https://raw.githubusercontent.com/takitapart/dotfiles/master/bootstrap.sh)
+Clone the repository.
+
+    git clone https://github.com/takitapart/dotfiles.git
+
+Run the install script.
+
+    cd dotfiles && ./bootstrap.sh
+
 
 ## References ##
 
