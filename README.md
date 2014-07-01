@@ -10,5 +10,10 @@ Run the bootstrap script, which will install everything else.
 
 ## References ##
 
-  - [fBootstrap](https://github.com/fbeeper/fBootstrap).
-  - [Laptop](https://github.com/thoughtbot/laptop). [LICENSE](license).
+The following repo's were essential in getting this going. 
+
+  - [Dave Tucker's dotfiles](https://github.com/dave-tucker/dotfiles) - 
+
+Apologies in advance to those work I've missed. Drop me a line, and I'll 
+be happy to add you to the list.
+
