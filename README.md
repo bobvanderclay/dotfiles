@@ -6,7 +6,7 @@ Install the command-line tools.
 
 Run the bootstrap script, which will install everything else.
 
-    bash <(curl -s https://raw.github.com/takitapart/dotfiles/master/bootstrap.sh)
+    bash <(curl -s https://raw.githubusercontent.com/takitapart/dotfiles/master/bootstrap.sh)
 
 ## References ##
 
