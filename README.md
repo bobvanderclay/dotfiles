@@ -17,12 +17,10 @@ Run the install script.
     cd dotfiles && ./bootstrap.sh
 
 
-## References ##
+## Many Thanks To ##
 
-The following repo's were essential in getting this going. 
+My dotfiles are largely based on the work of these repositories:
 
+  - [@holman's dotfiles](https://github.com/holman/dotfiles) - 
   - [Dave Tucker's dotfiles](https://github.com/dave-tucker/dotfiles) - 
-
-Apologies in advance to those work I've missed. Drop me a line, and I'll 
-be happy to add you to the list.
 

@@ -1,0 +1,44 @@
+#!/bin/bash
+
+case $1 in
+  install)
+    echo "Installing dotfiles."
+    ;;
+
+  update)
+    echo "Updating dotfiles."
+    ;;
+
+  provision)
+    echo "Provisioning machine with default software."
+    ;;
+
+  git)
+    echo "Setting up git."
+    ;;
+
+  help)
+    echo "
+  Usage: dotfile [COMMAND]
+
+  Available commands:
+  
+    install       Install dotfiles. 
+    update        Update dotfiles.
+    provision     Install default software.
+    bootstrap     Install essential software.
+    help          Help. This.
+
+  For detailed help, use:
+
+  dotfile help [COMMAND]
+  "
+  ;;
+
+  *)
+    echo "No valid command found."
+    ;;
+
+esac
+
+
