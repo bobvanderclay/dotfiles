@@ -25,6 +25,8 @@ Bundle 'edkolev/promptline.vim'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'SirVer/ultisnips'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

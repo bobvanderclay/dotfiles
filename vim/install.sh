@@ -9,3 +9,6 @@ fi
 echo "Installing vim plugins..."
 vim +BundleInstall +qall
 
+echo "Compiling YCM support libraries..."
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
