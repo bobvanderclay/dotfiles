@@ -25,7 +25,7 @@ if [ -f ~/.zsh/promptline.sh ]; then
 fi
 
 # Needed in zsh < 5.0.5 to prevent space at end of RPROMPT.
-# ZLE_RPROMPT_INDENT=0 
+# ZLE_RPROMPT_INDENT=0
 # Fix ESC delay
 KEYTIMEOUT=1
 # Needed to force 256 color.
@@ -35,3 +35,6 @@ export LANG=en_US.UTF-8
 
 # Aliases
 alias dev='cd ~/Development'
+
+# brew PHP
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
