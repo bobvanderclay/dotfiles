@@ -17,7 +17,7 @@ function redrawBorder()
           top_left['y']-(BORDER_WIDTH/2),
           size['w']+(BORDER_WIDTH),
           size['h']+(BORDER_WIDTH)))
-        global_border:setStrokeColor({["red"]=1,["blue"]=0,["green"]=0,["alpha"]=0.75})
+        global_border:setStrokeColor({["red"]=1,["blue"]=0,["green"]=0.5,["alpha"]=1})
         global_border:setFill(false)
         global_border:setRoundedRectRadii(BORDER_WIDTH,BORDER_WIDTH)
         global_border:setLevel("floating")

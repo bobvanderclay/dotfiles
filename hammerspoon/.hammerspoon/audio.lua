@@ -63,7 +63,7 @@ local createModal = function(volume)
         :setRoundedRectRadii(10, 10)
         :setStroke(false)
         :setFill(true)
-        :setFillColor({white = 0.5, alpha= 0.75})
+        :setFillColor({white = 0.5, alpha= 0.9})
         :bringToFront()
         :show(MODAL_FADEIN_TIME),
       icon = hs.drawing.image(hs.geometry(iconX, iconY, ICON_W, ICON_H), getIconImagePath())
