@@ -1,34 +1,67 @@
--- Set grid size.
-MARGINX = 15
-MARGINY = 15
+spaces = require("hs._asm.undocumented.spaces")
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
-  hs.reload()
-end)
-hs.alert.show("Config loaded")
+local Audio = require "audio"
+local Media = require "media"
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
 
-  f.x = max.x + MARGINX
-  f.y = max.y + MARGINY
-  f.w = (max.w / 2) - (MARGINX * 1.5)
-  f.h = max.h - (MARGINY * 2)
-  win:setFrame(f)
-end)
+-- mash hotkeys
+ctrlAlt       = {"cmd", "alt"}
+cmdAlt        = {"ctrl", "alt"}
+ctrlCmd       = {"ctrl", "cmd"}
+mash 	        = {"cmd", "alt", "ctrl"}
+mashShift     = {"ctrl", "alt", "shift"}
+hyper         = {"cmd", "ctrl", "alt", "shift"}
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
+require "pomodoor"
+require "cheatsheet"
+require "highlight"
+require "redshift"
+require "spaces"
+require "layout"
+require "media"
 
-  f.x = max.x + (max.w / 2) + (MARGINX / 2)
-  f.y = max.y + MARGINY
-  f.w = (max.w / 2) - (MARGINX * 1.5)
-  f.h = max.h - (MARGINY * 2)
-  win:setFrame(f)
-end)
+
+-- reload configurations
+----------------------------------------------------------
+function reloadConfig()
+	hs.alert.show("Config loaded")
+	hs.reload()
+end
+
+-- reload config
+hs.hotkey.bind(mash, "R",  reloadConfig)
+hs.hotkey.bind(mash, "C", hs.toggleConsole)
+hs.pathwatcher.new(".", reloadConfig):start()
+
+-- Hide Dock Icon.
+hs.dockicon.hide()
+
+-- init grid
+hs.grid.MARGINX 	= 15
+hs.grid.MARGINY 	= 15
+hs.grid.GRIDWIDTH 	= 2
+hs.grid.GRIDHEIGHT 	= 2
+
+--Move windows
+hs.hotkey.bind(mash, "Down", hs.grid.pushWindowDown)
+hs.hotkey.bind(mash, "Up", hs.grid.pushWindowUp)
+hs.hotkey.bind(mash, "Left", hs.grid.pushWindowLeft)
+hs.hotkey.bind(mash, "Right", hs.grid.pushWindowRight)
+
+--
+hs.hotkey.bind({ "alt" }, "tab", hs.hints.windowHints)
+
+-- pomodoro key binding
+hs.hotkey.bind(mash, "9", function() pom_enable() end)
+hs.hotkey.bind(mash, "0", function() pom_disable() end)
+hs.hotkey.bind(hyper, "0", function() pom_reset_work() end)
+
+-- volume keys
+hs.hotkey.bind({}, "F13", Audio.toggleMute)
+hs.hotkey.bind({}, "F14", Audio.decVolume)
+hs.hotkey.bind({}, "F15", Audio.incVolume)
+
+-- Spotify
+hs.hotkey.bind(mash, "F14", Media.playpause)
+hs.hotkey.bind(mash, "F13", Media.previous)
+hs.hotkey.bind(mash, "F15", Media.next)

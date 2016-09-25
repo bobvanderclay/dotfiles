@@ -1,12 +1,13 @@
 -- Pomodoro module
+-- From https://github.com/ztomer/.hammerspoon/blob/master/pomodoor.lua
 
 --------------------------------------------------------------------------------
 -- Configuration variables
 --------------------------------------------------------------------------------
 local pom={}
 pom.bar = {
-  indicator_height = 0.2, -- ratio from the height of the menubar (0..1)
-  indicator_alpha  = 0.3,
+  indicator_height = 1, -- ratio from the height of the menubar (0..1)
+  indicator_alpha  = 0.2,
   indicator_in_all_spaces = true,
   color_time_remaining = hs.drawing.color.green,
   color_time_used      = hs.drawing.color.red,
@@ -85,7 +86,7 @@ end
 -- Stateful:
 -- * Disabling once will pause the countdown
 -- * Disabling twice will reset the countdown
--- * Disabling trice will shut down and hide the pomodoro timer
+-- * Disabling thrice will shut down and hide the pomodoro timer
 function pom_disable()
 
   local pom_was_active = pom.var.is_active
@@ -124,8 +125,8 @@ local function pom_update_time()
     pom.var.time_left = pom.var.time_left - 1
 
     if (pom.var.time_left <= 0 ) then
-      pom_disable()
-      if pom_curr_active_type == "work" then
+      -- pom_disable()
+      if pom.var.curr_active_type == "work" then
         hs.alert.show("Work Complete!", 2)
         pom.var.work_count        =  pom.var.work_count + 1
         pom.var.curr_active_type  = "rest"
