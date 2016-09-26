@@ -175,10 +175,6 @@ function takitapartWindowKeystroke(key)
 end
 
 
-
-
-
-
 -- Takitapart window commands
 hs.hotkey.bind(mash, "home", function() takitapartWindowKeystroke("home") end)
 hs.hotkey.bind(mash, "end", function() takitapartWindowKeystroke("end") end)

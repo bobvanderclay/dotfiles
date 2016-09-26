@@ -258,7 +258,6 @@ Media.close = function()
 end
 
 Media.getCurrentAlbum = function()
-  --activeApp = getActiveApp()
   if activeApp == "itunes" then
     hs.itunes.getCurrentAlbum()
   elseif activeApp == "spotify" then
@@ -267,7 +266,6 @@ Media.getCurrentAlbum = function()
 end
 
 Media.getCurrentArtist = function()
-  --activeApp = getActiveApp()
   if activeApp == "itunes" then
     hs.itunes.getCurrentArtist()
   elseif activeApp == "spotify" then
@@ -276,7 +274,6 @@ Media.getCurrentArtist = function()
 end
 
 Media.getCurrentTrack = function()
-  --activeApp = getActiveApp()
   if activeApp == "itunes" then
     hs.itunes.getCurrentTrack()
   elseif activeApp == "spotify" then
@@ -285,7 +282,6 @@ Media.getCurrentTrack = function()
 end
 
 Media.next = function()
-  -- activeApp = getActiveApp()
   if activeApp == "itunes" then
     hs.itunes.next()
   elseif activeApp == "spotify" then
@@ -294,7 +290,6 @@ Media.next = function()
 end
 
 Media.previous = function()
-  -- activeApp = getActiveApp()
   if activeApp == "itunes" then
     hs.itunes.previous()
   elseif activeApp == "spotify" then
@@ -303,7 +298,6 @@ Media.previous = function()
 end
 
 Media.play = function()
-  -- activeApp = getActiveApp()
   if activeApp == "itunes" then
     hs.itunes.play()
   elseif activeApp == "spotify" then
@@ -312,7 +306,6 @@ Media.play = function()
 end
 
 Media.pause = function()
-  -- activeApp = getActiveApp()
   if activeApp == "itunes" then
     hs.itunes.pause()
   elseif activeApp == "spotify" then
@@ -321,11 +314,26 @@ Media.pause = function()
 end
 
 Media.playpause = function()
-  -- activeApp = getActiveApp()
   if activeApp == "itunes" then
     hs.itunes.playpause()
   elseif activeApp == "spotify" then
     hs.spotify.playpause()
+  end
+end
+
+Media.ff = function()
+  if activeApp == "itunes" then
+    hs.itunes.ff()
+  elseif activeApp == "spotify" then
+    hs.spotify.ff()
+  end
+end
+
+Media.rw = function()
+  if activeApp == "itunes" then
+    hs.itunes.rw()
+  elseif activeApp == "spotify" then
+    hs.spotify.rw()
   end
 end
 
