@@ -87,7 +87,7 @@ local updateModal = function(volume)
   hs.drawing.disableScreenUpdates()
     modal.drawing.background:hide(0):show(0)
     modal.drawing.icon:setImageFromPath(getIconImagePath()):hide(0):show(0)
-    modal.drawing.number:setText(math.floor(volume)):hide(0):show(0)
+    modal.drawing.number:setText(volume):hide(0):show(0)
   hs.drawing.enableScreenUpdates()
 end
 
