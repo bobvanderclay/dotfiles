@@ -5,15 +5,15 @@ local Media = require "media"
 
 
 -- mash hotkeys
-ctrlAlt       = {"cmd", "alt"}
-cmdAlt        = {"ctrl", "alt"}
+cmdAlt        = {"cmd", "alt"}
+ctrlAlt       = {"ctrl", "alt"}
 ctrlCmd       = {"ctrl", "cmd"}
 mash 	        = {"cmd", "alt", "ctrl"}
 mashShift     = {"ctrl", "alt", "shift"}
 hyper         = {"cmd", "ctrl", "alt", "shift"}
 
-require "pomodoor"
-require "cheatsheet"
+-- require "pomodoor"
+-- require "cheatsheet"
 require "highlight"
 require "redshift"
 require "spaces"
@@ -175,6 +175,10 @@ function takitapartWindowKeystroke(key)
 end
 
 
+
+
+
+
 -- Takitapart window commands
 hs.hotkey.bind(mash, "home", function() takitapartWindowKeystroke("home") end)
 hs.hotkey.bind(mash, "end", function() takitapartWindowKeystroke("end") end)
@@ -184,10 +188,24 @@ hs.hotkey.bind(mash, "forwarddelete",  function() takitapartWindowKeystroke("for
 hs.hotkey.bind(mash, "pagedown",  function() takitapartWindowKeystroke("pagedown") end)
 
 -- Move to next monitor / space
-hs.hotkey.bind(mash, "Up", hs.grid.pushWindowUp)
-hs.hotkey.bind(mash, "Down", hs.grid.pushWindowDown)
-hs.hotkey.bind(mash, "Left", hs.grid.pushWindowLeft)
-hs.hotkey.bind(mash, "Right", hs.grid.pushWindowRight)
+hs.hotkey.bind(mash, "up", function()
+  local win = hs.window.focusedWindow()
+  win:moveOneScreenWest()
+  -- Move mouse with it, so we can use spaces commands on this screen.
+  local rect = win:frame()
+  local center = hs.geometry.rectMidPoint(rect)
+  hs.mouse.setAbsolutePosition(center)
+end)
+hs.hotkey.bind(mash, "down", function()
+  local win = hs.window.focusedWindow()
+  win:moveOneScreenEast()
+  -- Move mouse with it, so we can use spaces commands on this screen.
+  local rect = win:frame()
+  local center = hs.geometry.rectMidPoint(rect)
+  hs.mouse.setAbsolutePosition(center)
+end)
+hs.hotkey.bind(mash, 'left', nil, function() moveToSpaceInDirection(hs.window.focusedWindow(), "west") end)
+hs.hotkey.bind(mash, 'right', nil, function() moveToSpaceInDirection(hs.window.focusedWindow(), "east") end)
 
 --
 hs.hotkey.bind({ "alt" }, "tab", hs.hints.windowHints)

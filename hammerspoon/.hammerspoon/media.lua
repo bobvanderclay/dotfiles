@@ -6,7 +6,7 @@ local Media = {}
 local SPOTIFY_ENABLED = true
 local ITUNES_ENABLED = true
 local DEFAULT_APP = "spotify"
-local MENUBAR_REFRESH_TIME = 5
+local MENUBAR_REFRESH_TIME = 3
 
 --
 local activeApp = false
