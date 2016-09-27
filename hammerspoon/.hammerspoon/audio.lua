@@ -98,16 +98,21 @@ local showVolumeModal = function(volume)
   updateModal(volume)
 end
 
+-- Round number to integer * step
+local roundToStep = function(num, step)
+  return math.floor((num / step) + 0.5) * step
+end
+
 Audio.toggleMute = function()
   local device = hs.audiodevice.defaultOutputDevice()
   local wasMuted = device:muted()
   device:setMuted(not wasMuted)
-  showVolumeModal(wasMuted and device:volume() or 0)
+  showVolumeModal(wasMuted and roundToStep(device:volume(), VOLUME_STEP) or 0)
 end
 
 Audio.decVolume = function()
   local device = hs.audiodevice.defaultOutputDevice()
-  local targetVolume = math.max(device:volume() - VOLUME_STEP, VOLUME_MIN)
+  local targetVolume = math.max(roundToStep(device:volume(), VOLUME_STEP) - VOLUME_STEP, VOLUME_MIN)
   device:setMuted(false)
   device:setVolume(targetVolume)
   showVolumeModal(targetVolume)
@@ -115,7 +120,7 @@ end
 
 Audio.incVolume = function()
   local device = hs.audiodevice.defaultOutputDevice()
-  local targetVolume = math.min(device:volume() + VOLUME_STEP, VOLUME_MAX)
+  local targetVolume = math.min(roundToStep(device:volume(), VOLUME_STEP) + VOLUME_STEP, VOLUME_MAX)
   device:setMuted(false)
   device:setVolume(targetVolume)
   showVolumeModal(targetVolume)
