@@ -2,6 +2,7 @@ spaces = require("hs._asm.undocumented.spaces")
 
 local Audio = require "audio"
 local Media = require "media"
+local Switcher = require "switcher"
 
 -- mash hotkeys
 cmdAlt        = {"cmd", "alt"}
@@ -69,6 +70,8 @@ hs.hotkey.bind({ "alt" }, "tab", hs.hints.windowHints)
 hs.hotkey.bind(mash, "9", function() pom_enable() end)
 hs.hotkey.bind(mash, "0", function() pom_disable() end)
 hs.hotkey.bind(hyper, "0", function() pom_reset_work() end)
+
+hs.hotkey.bind(mash, "tab", Switcher.activate)
 
 -- volume keys
 hs.hotkey.bind({}, "F13", Audio.toggleMute)

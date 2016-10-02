@@ -259,25 +259,25 @@ end
 
 Media.getCurrentAlbum = function()
   if activeApp == "itunes" then
-    hs.itunes.getCurrentAlbum()
+    return hs.itunes.getCurrentAlbum()
   elseif activeApp == "spotify" then
-    hs.spotify.getCurrentAlbum()
+    return hs.spotify.getCurrentAlbum()
   end
 end
 
 Media.getCurrentArtist = function()
   if activeApp == "itunes" then
-    hs.itunes.getCurrentArtist()
+    return hs.itunes.getCurrentArtist()
   elseif activeApp == "spotify" then
-    hs.spotify.getCurrentArtist()
+    return hs.spotify.getCurrentArtist()
   end
 end
 
 Media.getCurrentTrack = function()
   if activeApp == "itunes" then
-    hs.itunes.getCurrentTrack()
+    return hs.itunes.getCurrentTrack()
   elseif activeApp == "spotify" then
-    hs.spotify.getCurrentTrack()
+    return hs.spotify.getCurrentTrack()
   end
 end
 
