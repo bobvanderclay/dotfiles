@@ -159,13 +159,13 @@ local nowPlayingStyled = function(app)
   local trackText, artistText, albumText
 
   if app == 'itunes' then
-    trackText = hs.itunes.getCurrentTrack()
-    artistText = hs.itunes.getCurrentArtist()
-    albumText = hs.itunes.getCurrentAlbum()
+    trackText = hs.itunes.getCurrentTrack() or ''
+    artistText = hs.itunes.getCurrentArtist() or ''
+    albumText = hs.itunes.getCurrentAlbum() or ''
   else
-    trackText = hs.spotify.getCurrentTrack()
-    artistText = hs.spotify.getCurrentArtist()
-    albumText = hs.spotify.getCurrentAlbum()
+    trackText = hs.spotify.getCurrentTrack() or ''
+    artistText = hs.spotify.getCurrentArtist() or ''
+    albumText = hs.spotify.getCurrentAlbum() or ''
   end
 
   local track = hs.styledtext.new(trackText .. '\n', {
@@ -187,8 +187,6 @@ local nowPlayingStyled = function(app)
       size = 13
     }
   })
-
-
 
   return track .. artist .. album
 
@@ -259,25 +257,25 @@ end
 
 Media.getCurrentAlbum = function()
   if activeApp == "itunes" then
-    return hs.itunes.getCurrentAlbum()
+    return hs.itunes.getCurrentAlbum() or ''
   elseif activeApp == "spotify" then
-    return hs.spotify.getCurrentAlbum()
+    return hs.spotify.getCurrentAlbum() or ''
   end
 end
 
 Media.getCurrentArtist = function()
   if activeApp == "itunes" then
-    return hs.itunes.getCurrentArtist()
+    return hs.itunes.getCurrentArtist() or ''
   elseif activeApp == "spotify" then
-    return hs.spotify.getCurrentArtist()
+    return hs.spotify.getCurrentArtist() or ''
   end
 end
 
 Media.getCurrentTrack = function()
   if activeApp == "itunes" then
-    return hs.itunes.getCurrentTrack()
+    return hs.itunes.getCurrentTrack() or ''
   elseif activeApp == "spotify" then
-    return hs.spotify.getCurrentTrack()
+    return hs.spotify.getCurrentTrack() or ''
   end
 end
 
