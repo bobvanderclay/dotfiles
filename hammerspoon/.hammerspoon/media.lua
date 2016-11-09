@@ -67,9 +67,9 @@ end
 local getCurrentTrack = function()
   local activeApp = getActiveApp()
   if activeApp == "itunes" then
-    return hs.itunes.getCurrentTrack()
+    return hs.itunes.getCurrentTrack() or ''
   elseif activeApp == "spotify" then
-    return hs.spotify.getCurrentTrack()
+    return hs.spotify.getCurrentTrack() or ''
   else
     return ""
   end
@@ -78,9 +78,9 @@ end
 local getCurrentArtist = function()
   local activeApp = getActiveApp()
   if activeApp == "itunes" then
-    return hs.itunes.getCurrentArtist()
+    return hs.itunes.getCurrentArtist() or ''
   elseif activeApp == "spotify" then
-    return hs.spotify.getCurrentArtist()
+    return hs.spotify.getCurrentArtist() or ''
   else
     return ""
   end

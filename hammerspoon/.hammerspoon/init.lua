@@ -14,11 +14,13 @@ hyper         = {"cmd", "ctrl", "alt", "shift"}
 
 -- require "pomodoor"
 -- require "cheatsheet"
-require "highlight"
+-- require "highlight"
 require "redshift"
 require "spaces"
 require "layout"
 require "window"
+
+hs.window.animationDuration = 0
 
 -- reload configurations
 ----------------------------------------------------------
