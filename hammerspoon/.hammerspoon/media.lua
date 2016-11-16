@@ -4,14 +4,14 @@ local Media = {}
 
 -- Config
 local SPOTIFY_ENABLED = true
-local ITUNES_ENABLED = true
+local ITUNES_ENABLED = false
 local DEFAULT_APP = "spotify"
 local MENUBAR_REFRESH_TIME = 3
 
 --
 local activeApp = false
 local menuBar = hs.menubar.new()
-menuBar:stateImageSize({w=10,h=10})
+      menuBar:stateImageSize({w=10,h=10})
 local imagePath = "./assets/media/";
 local onStateImage = hs.image.imageFromPath(imagePath .. "play.eps")
 local offStateImage = hs.image.imageFromPath(imagePath .. "paused.eps")
