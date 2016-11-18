@@ -20,16 +20,16 @@ if [[ $? != 0 ]] ; then
     fancy_echo "Installing Homebrew ..."
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
+    fancy_echo "Updating Homebrew ..."
     brew update
 fi
 
-exec < /dev/tty
 echo -e "\n"
-read -p "Generate new (and backup any current) SSH keys? (y):" createkey
+read -p "Generate new (and backup any current) SSH keys? (y):" createkey </dev/tty
 
 if [[ "${createkey:=y}" == "y" ]]; then
   echo -e "Generating new SSH keys...\n"
-  read -p "Enter your email address: " email
+  read -p "Enter your email address: " email </dev/tty
   mkdir -p ~/.ssh/key_backup && mv ~/.ssh/id_rsa* ~/.ssh/key_backup
   echo -e "\n\n\n" | ssh-keygen -t rsa -N "" -C ${email:=null@example.com}
 fi
