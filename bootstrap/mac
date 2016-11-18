@@ -23,6 +23,7 @@ else
     brew update
 fi
 
+exec < /dev/tty
 echo -e "\n"
 read -p "Generate new (and backup any current) SSH keys? (y):" createkey
 
