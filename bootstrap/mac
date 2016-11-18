@@ -12,10 +12,19 @@ xcode-select --install
 fancy_echo "Installing Homebrew ..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-fancy_echo "Generating SSH key ..."
-ssh-keygen -t rsa -b 4096 -C "bob@vanderclay.net"
+echo -e "\n"
+read -p "Generate new (and backup any current) SSH keys? (y):" createkey
+
+if [[ "${createkey:=y}" == "y" ]]; then
+  echo -e "Generating new SSH keys...\n"
+  read -p "Enter your email address: " email
+  mkdir -p ~/.ssh/key_backup && mv ~/.ssh/id_rsa* ~/.ssh/key_backup
+  echo -e "\n\n\n" | ssh-keygen -t rsa -N "" -C ${email:=null@example.com}
+fi
+
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
 pbcopy < ~/.ssh/id_rsa.pub
 fancy_echo "Copied SSH key to clipboard ..."
+fancy_echo "https://github.com/settings/keys"
