@@ -6,7 +6,7 @@ fancy_echo() {
   printf "\n$fmt\n" "$@"
 }
 
-fancy_echo "1.1"
+fancy_echo "1.2"
 
 # Install Xcode Command Line Tools.
 xcode-select --install
