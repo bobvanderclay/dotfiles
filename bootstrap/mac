@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 fancy_echo() {
   local fmt="$1"; shift
 
@@ -27,4 +27,4 @@ ssh-add ~/.ssh/id_rsa
 
 pbcopy < ~/.ssh/id_rsa.pub
 fancy_echo "Copied SSH key to clipboard ..."
-fancy_echo "https://github.com/settings/keys"
+fancy_echo "Add it to: https://github.com/settings/keys"
