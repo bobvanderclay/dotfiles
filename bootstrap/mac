@@ -6,7 +6,7 @@ fancy_echo() {
   printf "\n$fmt\n" "$@"
 }
 
-fancy_echo "1.2"
+fancy_echo "1.3"
 
 # Install Xcode Command Line Tools.
 xcode-select --install
@@ -40,3 +40,14 @@ ssh-add ~/.ssh/id_rsa
 pbcopy < ~/.ssh/id_rsa.pub
 fancy_echo "Copied SSH key to clipboard ..."
 fancy_echo "Add it to: https://github.com/settings/keys"
+read -p "Once that's done, hit enter" readyyy </dev/tty
+
+fancy_echo "Now we're going to checkout the repository ..."
+git clone git@github.com:takitapart/dotfiles.git ~/dotfiles
+
+touch ~/.bootstrap
+
+read -p "Ready to go? (y):" gokey </dev/tty
+if [[ "${gokey:=y}" == "y" ]]; then
+  ~/dotfiles/bin/dot
+fi
