@@ -24,6 +24,9 @@ else
     brew update
 fi
 
+fancy_echo "Installing Ansible ..."
+brew install ansible
+
 echo -e "\n"
 read -p "Generate new (and backup any current) SSH keys? (y):" createkey </dev/tty
 
