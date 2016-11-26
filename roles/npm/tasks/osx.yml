@@ -1,0 +1,2 @@
+- name: Install node and npm with homebrew
+  homebrew: name=node state=latest
