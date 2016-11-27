@@ -8,9 +8,13 @@
 
 # - name: Tap into caskroom/cask
 #   homebrew_tap: tap=caskroom/cask state=present
-# 
+#
 # - name: Tap into caskroom/fonts
 #   homebrew_tap: tap=caskroom/fonts state=present
+
+- name: "Run this task before homebrew_cask module, so that sudo cache gets refreshed."
+  command: "echo none"
+  become: yes
 
 - name: Install Mac apps with homebrew cask
   homebrew_cask: name={{item}} state=present

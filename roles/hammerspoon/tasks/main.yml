@@ -1,2 +1,26 @@
+- name: "Run this task before homebrew_cask module, so that sudo cache gets refreshed."
+  command: "echo none"
+  become: yes
+
 - name: Install Hammerspoon with Homebrew Cask
   homebrew_cask: name=hammerspoon state=present
+
+- name: Install git with Homebrew
+  homebrew: name=git state=latest
+
+- name: Check if .hammerspoon exists
+  stat: path="{{dotfiles_user_home}}/.hammerspoon"
+  register: hammerspoon_stat
+
+- name: Back up .hammerspoon
+  command: mv ~/.hammerspoon ~/.hammerspoon.bak
+  args:
+    creates: "{{dotfiles_user_home}}/.hammerspoon.bak"
+  when: hammerspoon_stat.stat.exists
+
+- name: Link .hammerspoon folder
+  file:
+    src: "{{ dotfiles_home }}/roles/git/files/hammerspoon.link"
+    dest: "{{ dotfiles_user_home }}/.hammerspoon"
+    state: link
+    force: yes
