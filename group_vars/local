@@ -1,0 +1,94 @@
+# vi: set ft=yaml :
+
+# NOTE: The below 2 variables should not need to be changed if you cloned
+#   the dotfiles repo to '~/dotfiles'
+#  Local home directory
+dotfiles_user_home: "{{ '~' | expanduser }}"
+# Where your dotfiles live. Probably don't need to change this.
+dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
+
+# Name used in commit messages
+full_name: Bob VanderClay
+# Git
+# Github username
+git_user: takitapart
+# If you use github, this should be the same as the email
+#  used on Github
+git_email: bob@vanderclay.net
+
+# Vim
+
+# Whether to install plugins automatically. If not, just run
+# :PlugInstall while in vim.
+vim_install_plugins: no
+
+
+# Utiliities that don't get installed by a role
+osx_homebrew_packages:
+  - wget
+  - tree
+  - highlight
+  - terminal-notifier
+  - wifi-password
+  - youtube-dl
+  - curl
+  - htop-osx
+  - httpie
+  - redis
+  - kubernetes-cli
+
+# Mac Apps to be installed with homebrew-cask
+osx_cask_packages:
+  # Browsers
+  - firefox
+  - google-chrome
+  # Utilities
+  - iterm2
+  - ngrok
+  - logitech-gaming-software
+  - alfred
+  - the-unarchiver
+  # dev
+  - atom
+  - visual-studio-code
+  # Vagrant/Virtualbox
+  - vagrant
+  - virtualbox
+  - vmware-fusion
+  - docker
+  # chat
+  - slack
+  # Password manager
+  - 1password
+  # Backup/storage
+  - arq
+  - dropbox
+  # Media/Music
+  - spotify
+  - vlc
+  - google-play-music-desktop-player
+  - steam
+  # Images
+  - sketch
+  - sketchup
+  - adobe-creative-cloud
+  - astropad
+  # Notetaking
+  - evernote
+  # Fonts
+  - fontexplorer-x-pro
+  - skyfonts
+  - font-ubuntu
+  # Databases
+  - sequel-pro
+  # VPN
+
+
+# Node utilities
+npm_global_packages:
+  - jsxhint
+  - webpack
+  - eslint
+  - eslint-config-airbnb
+  - eslint-plugin-react
+  - babel-eslint

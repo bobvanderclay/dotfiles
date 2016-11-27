@@ -5,9 +5,9 @@
 - name: Set up local development environment
   hosts: local
   roles:
-#    - git
+    - git
 #    - {role: package_manager, tags: ['bootstrap']}
-#    - {role: zsh, tags: ['bootstrap']}
+    - zsh
 #    - vim
 #    - python
     - npm
@@ -17,4 +17,5 @@
 #    - tmux
 #    - git-flow
 #    - fzf
-#    - {role: osx, when: ansible_os_family == "Darwin"}
+    - {role: hammerspoon, when: ansible_os_family == "Darwin"}
+    - {role: osx, when: ansible_os_family == "Darwin"}

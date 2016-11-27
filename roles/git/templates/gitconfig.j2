@@ -1,0 +1,17 @@
+[user]
+        name = {{ full_name }}
+        email = {{ git_email }}
+{% if ansible_os_family == 'Darwin' %}
+[credential]
+        helper = osxkeychain
+{% endif %}
+[core]
+        excludesfile = ~/.gitignore
+[push]
+        # See `git help config` (search for push.default)
+        # for more information on different options of the below setting.
+        #
+        # Setting to git 2.0 default to surpress warning message
+        default = simple
+[github]
+        user = {{ git_user }}
