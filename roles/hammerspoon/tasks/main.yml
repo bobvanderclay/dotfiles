@@ -1,2 +1,3 @@
 - name: Install Hammerspoon with Homebrew Cask
   homebrew_cask: name=hammerspoon state=present
+  become: true
