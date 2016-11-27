@@ -1,3 +1,4 @@
 # OSX zsh installation and setup
 - name: Change default shell to zsh
-  command: chsh -s /bin/zsh
+  user: name={{ansible_user_id}} shell=/bin/zsh
+  sudo: yes
