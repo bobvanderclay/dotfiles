@@ -4,7 +4,6 @@
 
 - name: Set up local development environment
   hosts: local
-  become_method: sudo
   roles:
     - git
 #    - {role: package_manager, tags: ['bootstrap']}
