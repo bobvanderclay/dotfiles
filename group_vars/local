@@ -25,6 +25,7 @@ vim_install_plugins: no
 
 # Utiities that don't get installed by a role
 osx_homebrew_packages:
+  - coreutils
   - wget
   - tree
   - highlight
@@ -78,7 +79,7 @@ osx_cask_packages:
   # Fonts
   - fontexplorer-x-pro
   - skyfonts
-  - font-ubuntu
+  # font-ubuntu
   # Databases
   - sequel-pro
   # VPN

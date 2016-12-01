@@ -1,0 +1,5 @@
+- name: Install dnsmasq with Homebrew
+  homebrew: name=dnsmasq state=latest
+
+- name: Run dnsmasq install script
+  script: set-defaults.sh creates=/etc/resolver/dev

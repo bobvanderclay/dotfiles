@@ -2,6 +2,13 @@
 - include: osx.yml
   when: ansible_os_family == "Darwin"
 
+# Unarchive zplug that needs to be downloaded
+- name: Manually Cloning zplug from GitHub
+  git:
+    repo: "https://github.com/zplug/zplug"
+    dest: "~/.zplug"
+    update: no
+
 # Configuration
 - name: Check if zshrc already exists
   stat: path="{{dotfiles_user_home}}/.zshrc"

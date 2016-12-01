@@ -2,6 +2,29 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/dotfiles
 
+# ------------------------------------------------------------------------------
+# zplug
+# ------------------------------------------------------------------------------
+export ZPLUG_HOME=$HOME/.zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "zplug/zplug"
+
+zplug "seebi/dircolors-solarized"
+zplug "plugins/git", from:oh-my-zsh
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+
+setopt prompt_subst
+zplug "caiogondim/bullet-train-oh-my-zsh-theme", use:bullet-train.zsh-theme
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  echo; zplug install
+fi
+
+zplug load --verbose
+# ------------------------------------------------------------------------------
+
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
@@ -36,3 +59,6 @@ if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
+
+# dircolors
+eval "$(dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.ansi-universal)"
