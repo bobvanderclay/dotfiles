@@ -13,6 +13,7 @@ zplug "zplug/zplug"
 zplug "seebi/dircolors-solarized"
 zplug "plugins/git", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-autosuggestions"
 
 setopt prompt_subst
 zplug "caiogondim/bullet-train-oh-my-zsh-theme", use:bullet-train.zsh-theme
@@ -62,3 +63,5 @@ fi
 
 # dircolors
 eval "$(dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.ansi-universal)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

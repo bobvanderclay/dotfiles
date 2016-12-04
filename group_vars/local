@@ -26,6 +26,7 @@ vim_install_plugins: no
 # Utiities that don't get installed by a role
 osx_homebrew_packages:
   - coreutils
+  - mosh
   - wget
   - tree
   - highlight
@@ -37,6 +38,7 @@ osx_homebrew_packages:
   - httpie
   - redis
   - kubernetes-cli
+  - tldr
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
@@ -49,6 +51,7 @@ osx_cask_packages:
   - logitech-gaming-software
   - alfred
   - the-unarchiver
+  - pdfexpert
   # dev
   - atom
   - visual-studio-code

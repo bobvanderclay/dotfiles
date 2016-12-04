@@ -8,14 +8,14 @@
     - git
 #    - {role: package_manager, tags: ['bootstrap']}
     - zsh
-#    - vim
+    - vim
 #    - python
     - npm
 #    - hub
 #    - autoenv
-#    - ag
+    - ag
     - tmux
 #    - git-flow
-#    - fzf
+    - fzf
     - {role: hammerspoon, when: ansible_os_family == "Darwin"}
     - {role: osx, when: ansible_os_family == "Darwin"}

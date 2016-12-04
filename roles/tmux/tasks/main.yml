@@ -2,27 +2,30 @@
 - include: osx.yml
   when: ansible_os_family == "Darwin"
 
-- name: Install tmuxp
-  pip: name=tmuxp state=latest
-  when: tmux_install_tmuxp
-
 - name: Install tpm
   git:
     repo: https://github.com/tmux-plugins/tpm
     dest: "{{dotfiles_user_home}}/.tmux/plugins/tpm"
+
+- name: Check if .tmux.conf exists
+  stat: path="{{dotfiles_user_home}}/.tmux.conf"
+  register: tmuxconf_stat
+  failed_when: False
+
+- name: Backup .tmux.conf
+  command: mv ~/.tmux.conf ~/.tmux.conf.bak
+  args:
+    creates: "{{dotfiles_user_home}}/.tmux.conf.bak"
+  when: tmuxconf_stat.stat.exists
 
 - name: Symlink .tmux.conf
   file:
     src: "{{ dotfiles_home }}/roles/tmux/files/tmux.conf"
     dest: "{{dotfiles_user_home}}/.tmux.conf"
     state: link
-  when: ansible_os_family != "Darwin"
 
-# On OSX, use the same tmux.conf, but also use
-# reattach_to_user_namespace (for clipboard support)
-- name: Symlink .tmux.conf (OSX)
-  file:
-    src: "{{ dotfiles_home }}/roles/tmux/files/tmux-osx.conf"
-    dest: "{{dotfiles_user_home}}/.tmux.conf"
-    state: link
-  when: ansible_os_family == "Darwin"
+- name: Install tmux plugins
+  command: ~/.tmux/plugins/tpm/bin/install_plugins
+
+- name: Update tmux plugins
+  command: ~/.tmux/plugins/tpm/bin/update_plugins all
