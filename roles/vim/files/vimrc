@@ -44,18 +44,6 @@ let g:neomake_python_enabled_makers = ['flake8']  " Only use flake8 for Python
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_html_enabled_makers = []
 
-" NICE TO HAVE
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_theme='solarized'
-" Explicitly specify which extensions to use
-let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'neomake', 'whitespace']
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'jszakmeister/vim-togglecursor'  " change cursor shape when entering insert mode
-Plug 'edkolev/promptline.vim'
-
 " Snippets
 if version >= 704 && has('python') || has('python3') | Plug 'SirVer/ultisnips' | endif
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -123,10 +111,24 @@ let g:gist_post_private = 1
 " Browse to gist after posting it
 let g:gist_open_browser_after_post = 1
 
-" COLOR
+" COLOR & THEME
+Plug 'morhetz/gruvbox'
 Plug 'flazz/vim-colorschemes'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_theme='gruvbox'
+" Explicitly specify which extensions to use
+let g:airline_extensions = ['branch', 'tabline', 'neomake', 'whitespace']
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'jszakmeister/vim-togglecursor'  " change cursor shape when entering insert mode
+Plug 'edkolev/promptline.vim'
+if &term =~ '256color' | set t_ut= | endif
+" Favorites: hybrid-sl iceberg jellybeans PaperColor apprentice gruvbox
+set background=dark | silent! colorscheme gruvbox
 
 " LANGUAGE-SPECIFIC
 Plug 'sloria/vim-polyglot'  " fork of sheerun/vim-polyglot with better python highlighting
@@ -175,18 +177,11 @@ set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 " No bells
 set noerrorbells visualbell t_vb=
 
-""" VISUAL SETTINGS """
-if &term =~ '256color' | set t_ut= | endif
-" Favorites: hybrid-sl iceberg jellybeans PaperColor apprentice
-set background=dark | silent! colorscheme hybrid-sl
-" silent! colorscheme PaperColor
-
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
 
 if exists('&breakindent') | set breakindent showbreak=.. | endif
 
-set cursorline  " have a line indicate cursor location
 set previewheight=25  " Larger preview height
 
 " Set minimum window size to 79x5.
@@ -209,7 +204,7 @@ nmap <leader>, :e $MYVIMRC<CR>
 " Reload vimrc
 noremap <silent> <leader>V :source $MYVIMRC<cr>
 " Smash escape
-inoremap jk <Esc>
+inoremap jj <Esc>
 " Search and replace, using : as a separator instead of /
 noremap <leader>sr :%s:::cg<Left><Left><Left><Left>
 " Switch between files

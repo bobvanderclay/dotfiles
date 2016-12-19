@@ -15,7 +15,8 @@ hyper         = {"cmd", "ctrl", "alt", "shift"}
 -- require "pomodoor"
 -- require "cheatsheet"
 -- require "highlight"
-require "redshift"
+
+-- require "redshift"
 require "spaces"
 require "layout"
 require "window"

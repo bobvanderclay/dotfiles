@@ -19,3 +19,9 @@
 - name: Install Mac apps with homebrew cask
   homebrew_cask: name={{item}} state=present
   with_items: '{{osx_cask_packages}}'
+
+- name: Install Mac apps via Mac App Store
+  command: mas install "{{ item.id }}"
+  args:
+    creates: /Applications/{{ item.name }}.app
+  with_items: '{{mas_packages}}'

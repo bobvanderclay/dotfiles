@@ -39,6 +39,7 @@ osx_homebrew_packages:
   - redis
   - kubernetes-cli
   - tldr
+  - mas
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
@@ -46,6 +47,7 @@ osx_cask_packages:
   - firefox
   - google-chrome
   # Utilities
+  - exa
   - iterm2
   - ngrok
   - logitech-gaming-software
@@ -53,6 +55,9 @@ osx_cask_packages:
   - the-unarchiver
   - pdfexpert
   # dev
+  - github-desktop
+  - kaleidoscope
+  - tower
   - atom
   - visual-studio-code
   # Vagrant/Virtualbox
@@ -86,7 +91,6 @@ osx_cask_packages:
   # Databases
   - sequel-pro
   # VPN
-
 
 # Node utilities
 npm_global_packages:

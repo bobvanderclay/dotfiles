@@ -14,8 +14,10 @@
 #    - hub
 #    - autoenv
     - ag
+#   - rust
     - tmux
 #    - git-flow
+    - fzy
     - fzf
     - {role: hammerspoon, when: ansible_os_family == "Darwin"}
     - {role: osx, when: ansible_os_family == "Darwin"}
