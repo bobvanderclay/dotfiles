@@ -1,0 +1,5 @@
+alias e="exa"
+alias el="exa -gla --git"
+alias et="exa -gla --git --tree"
+alias er="exa -gla --git --sort=modified"
+alias es="exa -gla --git --sort=size"
