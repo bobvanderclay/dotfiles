@@ -6,18 +6,18 @@
   hosts: local
   roles:
     - git
-#    - {role: package_manager, tags: ['bootstrap']}
     - zsh
     - vim
+    - neovim
 #    - python
     - npm
 #    - hub
 #    - autoenv
     - ag
 #   - rust
+    - exa
     - tmux
-#    - git-flow
     - fzy
-    - fzf
+    - dnsmasq
     - {role: hammerspoon, when: ansible_os_family == "Darwin"}
     - {role: osx, when: ansible_os_family == "Darwin"}
