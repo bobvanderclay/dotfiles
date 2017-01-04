@@ -40,6 +40,8 @@ osx_homebrew_packages:
   - kubernetes-cli
   - tldr
   - mas
+  - thefuck
+  - fasd
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
@@ -47,13 +49,14 @@ osx_cask_packages:
   - firefox
   - google-chrome
   # Utilities
-  - exa
+  # exa (cask version broken)
   - iterm2
   - ngrok
   - logitech-gaming-software
   - alfred
   - the-unarchiver
   - pdfexpert
+  - rescuetime
   # dev
   - github-desktop
   - kaleidoscope
@@ -77,6 +80,7 @@ osx_cask_packages:
   - vlc
   - google-play-music-desktop-player
   - steam
+  - airfoil
   # Images
   - sketch
   - sketchup
