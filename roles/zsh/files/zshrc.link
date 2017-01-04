@@ -5,17 +5,15 @@ export ZSH=$HOME/dotfiles
 # ------------------------------------------------------------------------------
 # zplug
 # ------------------------------------------------------------------------------
-export ZPLUG_HOME=$HOME/.zplug
-source $ZPLUG_HOME/init.zsh
+source ~/.zplug/init.zsh
 
 zplug "zplug/zplug"
-
 zplug "seebi/dircolors-solarized"
 zplug "plugins/git", from:oh-my-zsh
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions"
-zplug "b4b4r07/enhancd", use:init.sh
-export ENHANCD_FILTER=fzy:fzf
+#zplug "b4b4r07/enhancd", use:init.sh
+#export ENHANCD_FILTER="fzf-tmux:fzy:fzf"
 
 setopt prompt_subst
 zplug "caiogondim/bullet-train-oh-my-zsh-theme", use:bullet-train.zsh-theme
@@ -25,7 +23,7 @@ if ! zplug check --verbose; then
   echo; zplug install
 fi
 
-zplug load --verbose
+zplug load
 # ------------------------------------------------------------------------------
 
 # all of our zsh files
@@ -62,6 +60,9 @@ if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
+
+# thefuck
+eval "$(thefuck --alias)"
 
 # dircolors
 eval "$(dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.ansi-universal)"
