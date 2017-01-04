@@ -1,0 +1,14 @@
+- homebrew_tap:
+    name: neovim/neovim
+
+- name: Install Neovim with homebrew
+  homebrew: name=neovim state=latest
+
+- homebrew_tap:
+    name: universal-ctags/universal-ctags
+
+- name: Install Universal Ctags
+  homebrew: name=universal-ctags state=head
+
+- name: Install ripgrep with homebrew
+  homebrew: name=ripgrep state=latest

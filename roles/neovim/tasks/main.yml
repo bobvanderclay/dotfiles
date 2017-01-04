@@ -1,0 +1,40 @@
+- include: osx.yml
+  when: ansible_os_family == "Darwin"
+
+- name: Install neovim python modile
+  pip:
+    name: neovim
+    executable: pip3
+
+# Plugin manager
+- name: Makes sure autoload directory exists
+  file: path="{{dotfiles_user_home}}/.local/share/nvim/site/autoload" state=directory
+
+- name: Install vim-plug
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: "{{dotfiles_user_home}}/.local/share/nvim/site/autoload/plug.vim"
+
+# Config file
+- name: Create .config directory
+  file: path=~/.config state=directory
+
+- name: Check if ~/.config/nvim exists
+  stat: path="{{dotfiles_user_home}}/.config/nvim"
+  register: nvim_stat
+
+- name: Back up ~/.config/nvim if exists
+  command: mv ~/.config/nvim ~/.config/nvim.bak
+  args:
+    creates: "~/.config/nvim.bak"
+  when: nvim_stat.stat.exists
+
+- name: Link ~/.config/nvim folder
+  file:
+    src: "{{ dotfiles_home }}/roles/neovim/files/nvim"
+    dest: "~/.config/nvim"
+    state: link
+    force: yes
+
+- name: Install neovim plugins
+  command: nvim +PlugInstall +qall

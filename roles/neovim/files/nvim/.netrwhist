@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/bob'
+let g:netrw_dirhist_2='/Users/bob/Desktop'
+let g:netrw_dirhist_3='/Users/bob/dotfiles/roles/neovim/files/nvim'
+let g:netrw_dirhist_4='/Users/bob'
+let g:netrw_dirhist_5='/Users/bob/Development/sphere/www/senexpowered.dev'
+let g:netrw_dirhist_6='/Users/bob/dotfiles'
+let g:netrw_dirhist_7='/Users/bob/Development/sphere/www/senexpowered.dev'
+let g:netrw_dirhist_8='/Users/bob/Development/sphere/www/senexpowered.dev/app'
+let g:netrw_dirhist_9='/Users/bob/Development/sphere/www/senexpowered.dev'
