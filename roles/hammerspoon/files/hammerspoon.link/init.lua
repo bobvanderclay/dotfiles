@@ -45,6 +45,13 @@ hs.hotkey.bind(mash, "help",  function() takitapartWindowKeystroke("help") end)
 hs.hotkey.bind(mash, "pageup",  function() takitapartWindowKeystroke("pageup") end)
 hs.hotkey.bind(mash, "forwarddelete",  function() takitapartWindowKeystroke("forwarddelete") end)
 hs.hotkey.bind(mash, "pagedown",  function() takitapartWindowKeystroke("pagedown") end)
+-- laptop variants
+hs.hotkey.bind(mash, "i", function() takitapartWindowKeystroke("home") end)
+hs.hotkey.bind(mash, "k", function() takitapartWindowKeystroke("end") end)
+hs.hotkey.bind(mash, "u",  function() takitapartWindowKeystroke("help") end)
+hs.hotkey.bind(mash, "o",  function() takitapartWindowKeystroke("pageup") end)
+hs.hotkey.bind(mash, "j",  function() takitapartWindowKeystroke("forwarddelete") end)
+hs.hotkey.bind(mash, "l",  function() takitapartWindowKeystroke("pagedown") end)
 
 -- Move to next monitor / space
 hs.hotkey.bind(mash, "up", function()
