@@ -1,3 +1,0 @@
-
-- name: Install exuberant-ctags (needed for TagBar plugin)
-  homebrew: name=ctags-exuberant state=present
