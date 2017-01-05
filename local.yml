@@ -17,7 +17,6 @@
 #   - rust
     - exa
     - tmux
-    - fzy
     - dnsmasq
     - {role: hammerspoon, when: ansible_os_family == "Darwin"}
     - {role: osx, when: ansible_os_family == "Darwin"}

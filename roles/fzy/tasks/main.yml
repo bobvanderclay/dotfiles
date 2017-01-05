@@ -1,6 +1,0 @@
-- homebrew_tap:
-    name: jhawthorn/fzy
-
-- name: Install fzy with Homebrew
-  homebrew: name=fzy state=latest
-  when: ansible_os_family == "Darwin"
