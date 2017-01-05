@@ -3,3 +3,5 @@
 *.retry
 **/*.local
 tags
+Session.vim
+.netrwhist
