@@ -13,3 +13,6 @@ Icon
 
 ## autoenv ##
 .env
+
+## ctags ##
+tags
