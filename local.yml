@@ -8,8 +8,8 @@
     - git
     - zsh
     - vim
-    - fzf
     - neovim
+    - fzf
 #    - python
     - npm
 #    - hub

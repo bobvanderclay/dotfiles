@@ -42,6 +42,9 @@ osx_homebrew_packages:
   - mas
   - thefuck
   - fasd
+  - jq
+  - jid
+  - ansiweather
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
