@@ -8,6 +8,7 @@
     - git
     - zsh
     - vim
+    - fzf
     - neovim
 #    - python
     - npm
