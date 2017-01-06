@@ -11,3 +11,4 @@ mas_packages:
   - { id: 1176895641, name: "Spark" }
   - { id: 623795237,  name: "Ulysses" }
   - { id: 432027450,  name: "RadarScope" }
+  - { id: 907364780,  name: "Tomato One" }
