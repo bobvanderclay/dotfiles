@@ -66,6 +66,7 @@ osx_cask_packages:
   - tower
   - atom
   - visual-studio-code
+  - postman
   # Vagrant/Virtualbox
   - vagrant
   - virtualbox
@@ -107,3 +108,4 @@ npm_global_packages:
   - eslint-config-airbnb
   - eslint-plugin-react
   - babel-eslint
+  - create-react-app
