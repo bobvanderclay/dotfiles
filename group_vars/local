@@ -45,6 +45,7 @@ osx_homebrew_packages:
   - jq
   - jid
   - ansiweather
+  - mpv
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
@@ -81,10 +82,10 @@ osx_cask_packages:
   - dropbox
   # Media/Music
   - spotify
-  - vlc
   - google-play-music-desktop-player
   - steam
   - airfoil
+  - iina
   # Images
   - sketch
   - sketchup

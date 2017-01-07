@@ -1,7 +1,6 @@
 mas_packages:
   - { id: 497799835,  name: "Xcode" }
   - { id: 975937182,  name: "Fantastical 2" }
-  - { id: 1044549675, name: "Elmedia Video Player" }
   - { id: 1055511498, name: "Day One" }
   - { id: 1091189122, name: "Bear" }
   - { id: 993487541,  name: "CARROT Weather" }
