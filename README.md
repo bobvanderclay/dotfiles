@@ -16,6 +16,7 @@ curl -s https://raw.githubusercontent.com/takitapart/dotfiles/master/bootstrap/m
 - iterm config?
 - rustup (nightly)
 - cmake
+- yarn
 - exa
     RUSTFLAGS="-C target-cpu=native" cargo install --git git://github.com/ogham/exa
     brew install openssl

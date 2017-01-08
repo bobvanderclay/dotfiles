@@ -11,7 +11,7 @@
     - neovim
     - fzf
 #    - python
-    - npm
+    - node
 #    - hub
 #    - autoenv
     - ag
