@@ -75,6 +75,7 @@ osx_cask_packages:
   - docker
   # chat
   - slack
+  - skype
   # Password manager
   - 1password
   # Backup/storage

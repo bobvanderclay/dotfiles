@@ -5,3 +5,4 @@
 tags
 Session.vim
 .netrwhist
+*.log
