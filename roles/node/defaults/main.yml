@@ -3,3 +3,4 @@ npm_global_packages:
   - eslint
   - webpack
   - tldr
+  - prettier

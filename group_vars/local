@@ -26,6 +26,7 @@ vim_install_plugins: no
 # Utiities that don't get installed by a role
 osx_homebrew_packages:
   - coreutils
+  - python3
   - mosh
   - wget
   - tree

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Check for fasd & fzf.
+(type fzf &> /dev/null) && HAS_FZF=true || HAS_FZF=false
+(type fasd &> /dev/null) && HAS_FASD=true || HAS_FASD=false
+
+SESSION=${HOSTNAME%%.*}
+
+for DIR in $(fasd -Rdl "$1" | fzf -1 -0 --no-sort -m)
+do
+    WINDOW=$(basename $DIR)
+
+    # Session / Window
+    if (! tmux has-session -t $SESSION 2> /dev/null); then
+        tmux new-session -d -s $SESSION -n $WINDOW -c $DIR 
+        # Wait for server to load.
+        while ! tmux has-session -t $SESSION; do sleep 1; done
+    else
+        tmux new-window -n $WINDOW -c $DIR
+    fi
+
+    # Splits
+    tmux split-window -h -c $DIR
+    tmux split-window -v -c $DIR
+    tmux split-window -v -c $DIR
+    tmux select-layout 'Da84,276x69,0,0{195x69,0,0,18,80x69,196,0[80x22,196,0,19,80x22,196,23,20,80x23,196,46,21]}'
+    tmux select-pane -t 1
+    tmux send-keys "nvim ." C-m
+done
+
+tmux attach-session -t "$SESSION"

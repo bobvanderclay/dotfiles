@@ -13,10 +13,8 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions"
 
-# zplug "bhilburn/powerlevel9k"
-#
 setopt prompt_subst
-zplug "caiogondim/bullet-train-oh-my-zsh-theme", use:bullet-train.zsh-theme
+# zplug "denysdovhan/spaceship-zsh-theme", use:spaceship.zsh-theme
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -25,6 +23,13 @@ fi
 
 zplug load
 # ------------------------------------------------------------------------------
+
+# Prompt
+# hostcolor=197
+# zstyle ':vcs_info:git*' formats "%{$fg[blue]%}#%b%{$reset_color%}"
+# PROMPT='%~${vcs_info_msg_0_} %F{$hostcolor}> %f'
+# PROMPT='%(5~|%-1~/…/%3~|%4~)'
+
 
 # all of our zsh files
 typeset -U config_files

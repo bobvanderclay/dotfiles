@@ -1,0 +1,16 @@
+# Installation and setup
+- include: osx.yml
+  when: ansible_os_family == "Darwin"
+
+# Configuration
+- name: Link hyper config file
+  file:
+    src: "{{ dotfiles_home }}/roles/hyper/files/.hyper.js"
+    dest: "{{ '~/.hyper.js' | expanduser }}"
+    state: link
+
+- name: Link hyper plugins directory 
+  file:
+    src: "{{ dotfiles_home }}/roles/hyper/files/.hyper_plugins"
+    dest: "{{ '~/.hyper_plugins' | expanduser }}"
+    state: link

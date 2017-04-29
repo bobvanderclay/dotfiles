@@ -1,0 +1,2 @@
+- name: Install Hyper with Homebrew Cask
+  homebrew_cask: name="hyper" state=present
