@@ -47,6 +47,7 @@ osx_homebrew_packages:
   - jid
   - ansiweather
   - mpv
+  - exa
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
@@ -54,10 +55,8 @@ osx_cask_packages:
   - firefox
   - google-chrome
   # Utilities
-  # exa (cask version broken)
   - iterm2
   - ngrok
-  - logitech-gaming-software
   # alfred
   - the-unarchiver
   - pdfexpert
@@ -82,6 +81,7 @@ osx_cask_packages:
   # Backup/storage
   - arq
   - dropbox
+  - google-backup-and-sync
   # Media/Music
   - spotify
   - google-play-music-desktop-player
