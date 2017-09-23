@@ -3,13 +3,14 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'sheerun/vim-polyglot'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'fleischie/vim-styled-components'
 
 Plug 'tpope/vim-fugitive'
@@ -18,14 +19,28 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
+
+Plug 'justinmk/vim-sneak'
+Plug 'justinmk/vim-dirvish'
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ervandew/supertab'
 
-Plug 'neomake/neomake'
+" Completion manager
+Plug 'roxma/nvim-completion-manager'
+Plug 'roxma/ncm-github'
+Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ludovicchabant/vim-gutentags'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'ervandew/supertab'
+" Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+
+Plug 'sbdchd/neoformat'
+Plug 'w0rp/ale'
 
 Plug 'matze/vim-move'
 Plug 'jiangmiao/auto-pairs'
@@ -36,34 +51,93 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
 
 " Productivity
+Plug 'mattn/emmet-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'itspriddle/vim-marked'
-Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'reedes/vim-pencil'
 
 " Initialize plugin system
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Editor settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tabs
+set tabstop=4       " The width of a TAB is set to 4.
+set shiftwidth=4    " Indents will have a width of 4
+set softtabstop=4   " Sets the number of columns for a TAB
+set expandtab       " Expand TABs to spaces
+set autoindent
+set smartindent
+
+" CSS / SASS
+autocmd FileType css,sass,scss,html,blade set sw=2
+autocmd FileType css,sass,scss,html,blade set ts=2
+autocmd FileType css,sass,scss,html,blade set sts=2
+
+" JavaScript
+autocmd FileType javascript set sw=2
+autocmd FileType javascript set ts=2
+autocmd FileType javascript set sts=2
+" autocmd FileType javascript set formatprg=prettier\ --stdin
+" autocmd FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin
+" augroup FiletypeGroup
+"     autocmd!
+"     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+" augroup END
+
+" PHP
+autocmd FileType php set sw=4
+autocmd FileType php set ts=4
+autocmd FileType php set sts=4
+
+" Line length.
+" set colorcolumn=80
+set nowrap
+
+" Line numbers
+set number
+" set relativenumber
+
+" Whitespace
+set listchars=tab:▸\ ,trail:·
+set list
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " netrw
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vimwiki
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimwiki_list = [{'path': '~/Dropbox/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Neomake
+" ALE 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd! BufWritePost,BufEnter * Neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_place_signs = 1
-let g:jsx_ext_required = 0
+let g:ale_sign_error = 'x'
+let g:ale_sign_warning = '>'
+hi! link ALEErrorSign GruvboxRed
+hi! link ALEWarningSign GruvboxYellow
+
+let g:ale_linters = {
+        \ 'javascript': ['eslint'],
+        \ 'jsx': ['stylelint', 'eslint'],
+        \ 'php': ['phpcs'],
+    \ }
+let g:ale_linter_aliases = {'jsx': 'css'}
+
+let g:ale_fixers = {}
+let g:ale_fixers = {
+        \ 'javascript': ['eslint'],
+        \ 'php': ['phpcbf'],
+    \ }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Neoformat
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fzf / rg
@@ -78,15 +152,46 @@ let g:jsx_ext_required = 0
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-
+command! -bang -nargs=* Fzf call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " deoplete.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
-" Why does <tab> navigate the completion menu from bottom to top?
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:deoplete#enable_at_startup = 1
+" " Why does <tab> navigate the completion menu from bottom to top?
+" let g:SuperTabDefaultCompletionType = "<c-n>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim-completion-manager
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" smart tab for auto complete
+inoremap <expr> <silent> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <silent> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+" optional
+inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LanguageClient
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " Required for operations modifying multiple buffers like rename.
+" set hidden
+
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+"     \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
+"     \ }
+
+" " Automatically start language servers.
+" let g:LanguageClient_autoStart = 1
+
+" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Goyo
@@ -114,7 +219,7 @@ function! s:goyo_leave()
   hi LineNr guifg='#3c3836'
 
   " GitGutter
-  let g:gitgutter_sign_column_always = 1
+  set signcolumn=yes
   hi clear SignColumn
   hi! link GitGutterAdd GruvboxGreen
   hi! link GitGutterChange GruvboxAqua
@@ -141,46 +246,12 @@ endif
 " OS X clipboard.
 set clipboard=unnamed
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Editor settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabs
-set tabstop=4       " The width of a TAB is set to 4.
-                    " Still it is a \t. It is just that
-                    " Vim will interpret it to be having
-                    " a width of 4.
-set shiftwidth=4    " Indents will have a width of 4
-set softtabstop=4   " Sets the number of columns for a TAB
-set expandtab       " Expand TABs to spaces
-" CSS
-autocmd FileType css set sw=2
-autocmd FileType css set ts=2
-autocmd FileType css set sts=2
-" JavaScript
-autocmd FileType javascript set sw=2
-autocmd FileType javascript set ts=2
-autocmd FileType javascript set sts=2
-autocmd FileType javascript set formatprg=prettier\ --stdin
-autocmd FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin
-
-" Line length.
-" set colorcolumn=80
-set nowrap
-
-" Line numbers
-set number
-" set relativenumber
-
-" Whitespace
-set listchars=tab:▸\ ,trail:·
-set list
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap jj <esc>
+inoremap jk <esc>
+inoremap kj <esc>
 
 let g:tmux_navigator_no_mappings = 1
 
@@ -229,19 +300,19 @@ colorscheme gruvbox
 set background=dark
 
 " Statusline
-hi StatusLine guibg=NONE gui=NONE
-hi StatusLineNC guibg=NONE gui=NONE
-set statusline=%=%f
+" hi StatusLine guibg=NONE gui=NONE
+" hi StatusLineNC guibg=NONE gui=NONE
+" set statusline=%=%f
 
 " General colors
 hi vertsplit guifg='#3c3836' guibg='#282828'
 hi LineNr guifg='#3c3836'
 
 " Airline
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 " GitGutter
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 hi clear SignColumn
 hi! link GitGutterAdd GruvboxGreen
 hi! link GitGutterChange GruvboxAqua

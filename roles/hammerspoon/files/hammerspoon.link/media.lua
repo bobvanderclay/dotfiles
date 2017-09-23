@@ -1,11 +1,9 @@
--- FROM: https://gist.github.com/tdlm/60297192cbfea99bd132
-
 local Media = {}
 
 -- Config
 local SPOTIFY_ENABLED = true
-local ITUNES_ENABLED = false
-local DEFAULT_APP = "spotify"
+local ITUNES_ENABLED = true 
+local DEFAULT_APP = "itunes"
 local MENUBAR_REFRESH_TIME = 3
 
 --

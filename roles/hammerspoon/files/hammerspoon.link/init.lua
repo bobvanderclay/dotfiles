@@ -1,14 +1,14 @@
 spaces = require("hs._asm.undocumented.spaces")
 
-local Audio = require "audio"
-local Media = require "media"
-local Switcher = require "switcher"
+-- local Audio = require "audio"
+-- local Media = require "media"
+-- local Switcher = require "switcher"
 
 -- mash hotkeys
 cmdAlt        = {"cmd", "alt"}
 ctrlAlt       = {"ctrl", "alt"}
 ctrlCmd       = {"ctrl", "cmd"}
-mash 	        = {"cmd", "alt", "ctrl"}
+mash 	      = {"cmd", "alt", "ctrl"}
 mashShift     = {"ctrl", "alt", "shift"}
 hyper         = {"cmd", "ctrl", "alt", "shift"}
 
@@ -74,21 +74,21 @@ hs.hotkey.bind(mash, 'left', nil, function() moveToSpaceInDirection(hs.window.fo
 hs.hotkey.bind(mash, 'right', nil, function() moveToSpaceInDirection(hs.window.focusedWindow(), "east") end)
 
 --
-hs.hotkey.bind({ "alt" }, "tab", hs.hints.windowHints)
+-- hs.hotkey.bind({ "alt" }, "tab", hs.hints.windowHints)
 
 -- pomodoro key binding
-hs.hotkey.bind(mash, "9", function() pom_enable() end)
-hs.hotkey.bind(mash, "0", function() pom_disable() end)
-hs.hotkey.bind(hyper, "0", function() pom_reset_work() end)
+-- hs.hotkey.bind(mash, "9", function() pom_enable() end)
+-- hs.hotkey.bind(mash, "0", function() pom_disable() end)
+-- hs.hotkey.bind(hyper, "0", function() pom_reset_work() end)
 
-hs.hotkey.bind(mash, "tab", Switcher.activate)
+-- hs.hotkey.bind(mash, "tab", Switcher.activate)
 
 -- volume keys
-hs.hotkey.bind({}, "F13", Audio.toggleMute)
-hs.hotkey.bind({}, "F14", Audio.decVolume)
-hs.hotkey.bind({}, "F15", Audio.incVolume)
+-- hs.hotkey.bind({}, "F13", Audio.toggleMute)
+-- hs.hotkey.bind({}, "F14", Audio.decVolume)
+-- hs.hotkey.bind({}, "F15", Audio.incVolume)
 
 -- Spotify
-hs.hotkey.bind(mash, "F13", Media.previous)
-hs.hotkey.bind(mash, "F14", Media.playpause)
-hs.hotkey.bind(mash, "F15", Media.next)
+-- hs.hotkey.bind(mash, "F13", Media.previous)
+-- hs.hotkey.bind(mash, "F14", Media.playpause)
+-- hs.hotkey.bind(mash, "F15", Media.next)

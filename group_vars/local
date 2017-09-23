@@ -58,7 +58,7 @@ osx_cask_packages:
   - iterm2
   - ngrok
   - logitech-gaming-software
-  - alfred
+  # alfred
   - the-unarchiver
   - pdfexpert
   - rescuetime
