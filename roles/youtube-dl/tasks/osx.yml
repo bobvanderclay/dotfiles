@@ -1,0 +1,5 @@
+- name: Install with homebrew
+  homebrew: name={{item}} state=latest
+  with_items:
+    - youtube-dl
+    - atomicparsley

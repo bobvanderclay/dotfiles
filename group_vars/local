@@ -33,7 +33,6 @@ osx_homebrew_packages:
   - highlight
   - terminal-notifier
   - wifi-password
-  - youtube-dl
   - curl
   - htop-osx
   - httpie

@@ -21,4 +21,5 @@
     - tmux
     - dnsmasq
     - hyper
+    - youtube-dl
     - {role: hammerspoon, when: ansible_os_family == "Darwin"}
