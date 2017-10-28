@@ -34,7 +34,7 @@ osx_homebrew_packages:
   - terminal-notifier
   - wifi-password
   - curl
-  - htop-osx
+  - htop
   - httpie
   - redis
   - kubernetes-cli

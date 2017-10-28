@@ -92,3 +92,20 @@ hs.hotkey.bind(mash, 'right', nil, function() moveToSpaceInDirection(hs.window.f
 -- hs.hotkey.bind(mash, "F13", Media.previous)
 -- hs.hotkey.bind(mash, "F14", Media.playpause)
 -- hs.hotkey.bind(mash, "F15", Media.next)
+
+local log = hs.logger.new('thing', 'debug')
+
+hs.hotkey.bind({}, "F13", function() 
+    hs.eventtap.event.newSystemKeyEvent("MUTE", true):post()
+    hs.eventtap.event.newSystemKeyEvent("MUTE", false):post()
+end)
+
+hs.hotkey.bind({}, "F14", function() 
+    hs.eventtap.event.newSystemKeyEvent("SOUND_DOWN", true):post()
+    hs.eventtap.event.newSystemKeyEvent("SOUND_DOWN", false):post()
+end)
+
+hs.hotkey.bind({}, "F15", function() 
+    hs.eventtap.event.newSystemKeyEvent("SOUND_UP", true):post()
+    hs.eventtap.event.newSystemKeyEvent("SOUND_UP", false):post()
+end)
