@@ -61,7 +61,7 @@ osx_cask_packages:
   - pdfexpert
   - rescuetime
   # dev
-  - github-desktop
+  - github
   - kaleidoscope
   - tower
   - atom
@@ -69,7 +69,7 @@ osx_cask_packages:
   - postman
   # Vagrant/Virtualbox
   - vagrant
-  - virtualbox
+  # virtualbox
   - vmware-fusion
   - docker
   # chat
