@@ -18,15 +18,18 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-ragtag'
 
+Plug 'machakann/vim-sandwich'
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/vim-asterisk'
 " Plug 'justinmk/vim-sneak'
-" Plug 'justinmk/vim-dirvish'
+Plug 'justinmk/vim-dirvish'
 Plug 'matze/vim-move'
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -36,7 +39,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'junegunn/vim-easy-align'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 
@@ -50,13 +53,13 @@ Plug 'honza/vim-snippets'
 Plug 'ludovicchabant/vim-gutentags'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'ervandew/supertab'
-" Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'w0rp/ale'
 
 " Only for the transition.
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Productivity
 Plug 'plasticboy/vim-markdown'
@@ -160,12 +163,15 @@ let g:ale_fixers = {
 " --color: Search color options
 command! -bang -nargs=* Fzf call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" deoplete.
+" EasyMotion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:deoplete#enable_at_startup = 1
-" " Why does <tab> navigate the completion menu from bottom to top?
-" let g:SuperTabDefaultCompletionType = "<c-n>"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ultisnips
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim-completion-manager
@@ -174,12 +180,14 @@ command! -bang -nargs=* Fzf call fzf#vim#grep('rg --column --line-number --no-he
 inoremap <expr> <silent> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <silent> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
-let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
-let g:UltiSnipsRemoveSelectModeMappings = 0
+let g:ultisnipsexpandtrigger		= "<C-U>"
+let g:ultisnipsjumpforwardtrigger	= "<c-j>"
+let g:ultisnipsjumpbackwardtrigger	= "<c-k>"
+let g:ultisnipsremoveselectmodemappings = 0
 " optional
 inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+map <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LanguageClient
@@ -188,9 +196,9 @@ inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ult
 " set hidden
 
 " let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-"     \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
-"     \ }
+    " \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    " \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    " \ }
 
 " " Automatically start language servers.
 " let g:LanguageClient_autoStart = 1
@@ -215,6 +223,23 @@ let g:indentLine_bgcolor_gui = '#282828'
 " justinmk/vim-sneak
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:sneak#label = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" haya14busa/incsearch.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" :h g:incsearch#auto_nohlsearch
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " junegunn/vim-easy-align

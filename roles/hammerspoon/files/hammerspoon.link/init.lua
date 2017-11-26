@@ -109,3 +109,18 @@ hs.hotkey.bind({}, "F15", function()
     hs.eventtap.event.newSystemKeyEvent("SOUND_UP", true):post()
     hs.eventtap.event.newSystemKeyEvent("SOUND_UP", false):post()
 end)
+
+hs.hotkey.bind(mash, "F13", function ()
+    hs.eventtap.event.newSystemKeyEvent("PREVIOUS", true):post()    
+    hs.eventtap.event.newSystemKeyEvent("PREVIOUS", false):post()    
+end)
+
+hs.hotkey.bind(mash, "F14", function ()
+    hs.eventtap.event.newSystemKeyEvent("PLAY", true):post()    
+    hs.eventtap.event.newSystemKeyEvent("PLAY", false):post()    
+end)
+
+hs.hotkey.bind(mash, "F15", function ()
+    hs.eventtap.event.newSystemKeyEvent("NEXT", true):post()    
+    hs.eventtap.event.newSystemKeyEvent("NEXT", false):post()    
+end)
