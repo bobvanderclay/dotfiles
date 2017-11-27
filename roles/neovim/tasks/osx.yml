@@ -10,5 +10,8 @@
 - name: Install Universal Ctags
   homebrew: name=universal-ctags state=head
 
+- name: Install fzf with homebrew
+  homebrew: name=fzf state=latest
+
 - name: Install ripgrep with homebrew
   homebrew: name=ripgrep state=latest
