@@ -39,7 +39,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'junegunn/vim-easy-align'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 
@@ -51,7 +51,6 @@ Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ludovicchabant/vim-gutentags'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'ervandew/supertab'
 Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'w0rp/ale'
@@ -218,11 +217,6 @@ let g:indentLine_bgcolor_gui = '#282828'
 " tpope/vim-abolish
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " See nvim/after/plugin/abolish 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" justinmk/vim-sneak
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:sneak#label = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " haya14busa/incsearch.vim
