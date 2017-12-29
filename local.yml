@@ -16,10 +16,11 @@
 #    - hub
 #    - autoenv
     - ag
-#   - rust
+    - rust
     - exa
     - tmux
     - dnsmasq
     - hyper
     - youtube-dl
+    - php
     - {role: hammerspoon, when: ansible_os_family == "Darwin"}

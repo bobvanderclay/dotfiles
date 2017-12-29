@@ -1,2 +1,2 @@
 - name: Install rustup
-  command: curl https://sh.rustup.rs -sSf | sh
+  shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
