@@ -83,31 +83,35 @@ hs.hotkey.bind(mash, 'right', nil, function() moveToSpaceInDirection(hs.window.f
 
 -- hs.hotkey.bind(mash, "tab", Switcher.activate)
 
--- volume keys
--- hs.hotkey.bind({}, "F13", Audio.toggleMute)
--- hs.hotkey.bind({}, "F14", Audio.decVolume)
--- hs.hotkey.bind({}, "F15", Audio.incVolume)
-
--- Spotify
--- hs.hotkey.bind(mash, "F13", Media.previous)
--- hs.hotkey.bind(mash, "F14", Media.playpause)
--- hs.hotkey.bind(mash, "F15", Media.next)
-
 local log = hs.logger.new('thing', 'debug')
 
+-- System Volume.
+-- hs.hotkey.bind({}, "F13", function() 
+--     hs.eventtap.event.newSystemKeyEvent("MUTE", true):post()
+--     hs.eventtap.event.newSystemKeyEvent("MUTE", false):post()
+-- end)
+
+-- hs.hotkey.bind({}, "F14", function() 
+--     hs.eventtap.event.newSystemKeyEvent("SOUND_DOWN", true):post()
+--     hs.eventtap.event.newSystemKeyEvent("SOUND_DOWN", false):post()
+-- end)
+
+-- hs.hotkey.bind({}, "F15", function() 
+--     hs.eventtap.event.newSystemKeyEvent("SOUND_UP", true):post()
+--     hs.eventtap.event.newSystemKeyEvent("SOUND_UP", false):post()
+-- end)
+
+-- Apollo Console.
 hs.hotkey.bind({}, "F13", function() 
-    hs.eventtap.event.newSystemKeyEvent("MUTE", true):post()
-    hs.eventtap.event.newSystemKeyEvent("MUTE", false):post()
+    hs.eventtap.keyStroke({"cmd"}, "F10")
 end)
 
 hs.hotkey.bind({}, "F14", function() 
-    hs.eventtap.event.newSystemKeyEvent("SOUND_DOWN", true):post()
-    hs.eventtap.event.newSystemKeyEvent("SOUND_DOWN", false):post()
+    hs.eventtap.keyStroke({"cmd"}, "F11")
 end)
 
 hs.hotkey.bind({}, "F15", function() 
-    hs.eventtap.event.newSystemKeyEvent("SOUND_UP", true):post()
-    hs.eventtap.event.newSystemKeyEvent("SOUND_UP", false):post()
+    hs.eventtap.keyStroke({"cmd"}, "F12")
 end)
 
 hs.hotkey.bind(mash, "F13", function ()

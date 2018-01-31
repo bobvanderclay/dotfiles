@@ -15,6 +15,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'fleischie/vim-styled-components'
 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-vinegar'

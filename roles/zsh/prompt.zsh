@@ -444,7 +444,7 @@ spaceship_prompt() {
   spaceship_current_dir
   spaceship_git_status
   spaceship_nvm_status
-  spaceship_ruby_version
+  # spaceship_ruby_version
   spaceship_xcode_version
   spaceship_swift_version
   spaceship_golang_version
