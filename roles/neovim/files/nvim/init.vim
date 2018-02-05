@@ -380,6 +380,7 @@ colorscheme gruvbox
 set background=dark
 
 " Statusline
+set noshowmode
 " hi StatusLine guibg=NONE gui=NONE
 " hi StatusLineNC guibg=NONE gui=NONE
 " set statusline=%=%f
