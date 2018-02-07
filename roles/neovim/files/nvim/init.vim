@@ -24,6 +24,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-obsession'
 
 Plug 'machakann/vim-sandwich'
 Plug 'easymotion/vim-easymotion'
@@ -364,6 +365,9 @@ vnoremap <leader>p "_dP
 
 " Goyo (Focus / Fullscreen)
 map <Leader>f :Goyo<cr>
+
+" Zoom (make current vim zoomed in tmux, respace windows)
+noremap <silent> <Leader>z :silent :!tmux resize-pane -Z<cr><c-w>=
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
