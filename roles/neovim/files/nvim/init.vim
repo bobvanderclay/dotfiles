@@ -44,6 +44,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
+Plug 'ap/vim-css-color'
 
 " Completion manager / Linting / Fixing
 Plug 'roxma/nvim-completion-manager'
