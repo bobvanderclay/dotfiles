@@ -64,7 +64,7 @@ osx_cask_packages:
   - github
   - kaleidoscope
   - tower
-  - atom
+  # atom
   - visual-studio-code
   - postman
   # Vagrant/Virtualbox
@@ -79,14 +79,14 @@ osx_cask_packages:
   - 1password
   # Backup/storage
   - arq
-  - dropbox
+  # - dropbox
   - google-backup-and-sync
   # Media/Music
-  - spotify
-  - google-play-music-desktop-player
+  # - spotify
+  # - google-play-music-desktop-player
   - steam
-  - airfoil
-  - iina
+  # - airfoil
+  # - iina
   # Images
   - sketch
   - sketchup
