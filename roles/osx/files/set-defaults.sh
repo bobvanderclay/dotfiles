@@ -47,3 +47,26 @@ defaults write com.apple.dock mru-spaces -bool false
 
 # Stop Photos from opening automatically
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+# Check for software updates daily, not just once per week
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Use list view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# autohide dock
+defaults write com.apple.dock autohide -bool true
+
+# Don’t group windows by application in Mission Control
+# (i.e. use the old Exposé behavior instead)
+defaults write com.apple.dock expose-group-by-app -bool false
+
+# Disable the sudden motion sensor as it’s not useful for SSDs
+sudo pmset -a sms 0
+
+# Disable useless dashboard
+defaults write com.apple.dashboard mcx-disabled -boolean YES && killall Dock
