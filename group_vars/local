@@ -78,9 +78,11 @@ osx_cask_packages:
   # Password manager
   - 1password
   # Backup/storage
-  - arq
+  # - arq
+  - backblaze
   # - dropbox
-  - google-backup-and-sync
+  # - google-backup-and-sync
+  - google-drive-file-stream
   # Media/Music
   # - spotify
   # - google-play-music-desktop-player

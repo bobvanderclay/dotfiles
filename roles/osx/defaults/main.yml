@@ -6,7 +6,8 @@ mas_packages:
   - { id: 403504866,  name: "PCalc" }
   - { id: 634148309,  name: "Logic Pro X" }
   - { id: 1176895641, name: "Spark" }
-  - { id: 623795237,  name: "Ulysses" }
+  - { id: 1225570693, name: "Ulysses" }
   - { id: 432027450,  name: "RadarScope" }
   - { id: 907364780,  name: "Tomato One" }
   - { id: 411643860,  name: "DaisyDisk" }
+  - { id: 904280696,  name: "Things 3" }
