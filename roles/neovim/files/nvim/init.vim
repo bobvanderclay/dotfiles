@@ -136,17 +136,21 @@ let g:ale_sign_warning = '>'
 hi! link ALEErrorSign GruvboxRed
 hi! link ALEWarningSign GruvboxYellow
 
-let g:ale_linters = {
-        \ 'javascript': ['eslint'],
-        \ 'jsx': ['stylelint', 'eslint'],
-        \ 'php': ['phpcs'],
-    \ }
-let g:ale_linter_aliases = {'jsx': 'css'}
+let g:ale_php_cs_fixer_use_global = 1
+let g:ale_sign_column_always = 1
+
+
+" let g:ale_linters = {
+        " \ 'javascript': ['eslint'],
+        " \ 'jsx': ['stylelint', 'eslint'],
+        " \ 'php': ['php-cs-fixer'],
+    " \ }
+" let g:ale_linter_aliases = {'jsx': 'css'}
 
 let g:ale_fixers = {}
 let g:ale_fixers = {
         \ 'javascript': ['eslint'],
-        \ 'php': ['phpcbf'],
+        \ 'php': ['php_cs_fixer'],
     \ }
 
 
