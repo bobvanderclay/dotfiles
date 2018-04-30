@@ -47,6 +47,7 @@ osx_homebrew_packages:
   - ansiweather
   - mpv
   - exa
+  - glances
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
