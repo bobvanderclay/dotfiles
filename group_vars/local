@@ -57,6 +57,7 @@ osx_cask_packages:
   # Utilities
   - iterm2
   - ngrok
+  - alfred
   # alfred
   - the-unarchiver
   - pdfexpert
@@ -82,14 +83,15 @@ osx_cask_packages:
   # - arq
   - backblaze
   # - dropbox
-  # - google-backup-and-sync
+  - google-backup-and-sync
   - google-drive-file-stream
   # Media/Music
   # - spotify
   # - google-play-music-desktop-player
   - steam
   # - airfoil
-  # - iina
+  - iina
+  - beardedspice
   # Images
   - sketch
   - sketchup
