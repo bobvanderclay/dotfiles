@@ -23,4 +23,5 @@
     - hyper
     - youtube-dl
     - php
+    - go
     - {role: hammerspoon, when: ansible_os_family == "Darwin"}

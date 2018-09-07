@@ -93,6 +93,9 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyperterm-gruvbox-dark',
+    "hyperterm-dark-fusion-vibrancy",
+    "hypertheme",
+    "hyper-statusline"
   ],
 
   // in development, you can create a directory under

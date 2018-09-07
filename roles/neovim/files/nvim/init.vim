@@ -5,12 +5,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
+Plug '2072/PHP-Indenting-for-VIm'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'fleischie/vim-styled-components'
 
@@ -27,10 +29,10 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-obsession'
 
 Plug 'machakann/vim-sandwich'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
-" Plug 'justinmk/vim-sneak'
+Plug 'justinmk/vim-sneak'
 Plug 'justinmk/vim-dirvish'
 Plug 'matze/vim-move'
 Plug 'christoomey/vim-tmux-navigator'
@@ -47,10 +49,23 @@ Plug 'alvan/vim-closetag'
 Plug 'ap/vim-css-color'
 
 " Completion manager / Linting / Fixing
-Plug 'roxma/nvim-completion-manager'
-Plug 'roxma/ncm-github'
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'phpactor/ncm2-phpactor'
+Plug 'ncm2/ncm2-tagprefix'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-github'
+
+Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
+
+
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ludovicchabant/vim-gutentags'
@@ -60,8 +75,8 @@ Plug 'w0rp/ale'
 
 " Only for the transition.
 Plug 'majutsushi/tagbar'
-" Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Productivity
 Plug 'plasticboy/vim-markdown'
@@ -102,6 +117,7 @@ autocmd FileType javascript set sts=2
 " augroup END
 
 " PHP
+" autocmd FileType php set filetype=php
 autocmd FileType php set sw=4
 autocmd FileType php set ts=4
 autocmd FileType php set sts=4
@@ -129,6 +145,22 @@ set list
 let NERDTreeMinimalUI=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OmniSharp
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OmniSharp won't work without this setting
+filetype plugin on
+"
+" Timeout in seconds to wait for a response from the server
+let g:OmniSharp_timeout = 5
+
+" Don't autoselect first omnicomplete option, show options even if there is only
+" one (so the preview documentation is accessible). Remove 'preview' if you
+" don't want to see any documentation whatsoever.
+set completeopt=longest,menuone,preview
+
+let g:OmniSharp_selector_ui = 'fzf'    " Use fzf.vim
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_sign_error = 'x'
@@ -138,14 +170,11 @@ hi! link ALEWarningSign GruvboxYellow
 
 let g:ale_php_cs_fixer_use_global = 1
 let g:ale_sign_column_always = 1
+let g:ale_fix_on_save = 1
 
-
-" let g:ale_linters = {
-        " \ 'javascript': ['eslint'],
-        " \ 'jsx': ['stylelint', 'eslint'],
-        " \ 'php': ['php-cs-fixer'],
-    " \ }
-" let g:ale_linter_aliases = {'jsx': 'css'}
+let g:ale_linters = {
+        \ 'cs': ['OmniSharp']
+    \ }
 
 let g:ale_fixers = {}
 let g:ale_fixers = {
@@ -155,6 +184,12 @@ let g:ale_fixers = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FZF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 " fzf / rg
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --column: Show column number
@@ -169,7 +204,6 @@ let g:ale_fixers = {
 " --color: Search color options
 command! -bang -nargs=* Fzf call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " EasyMotion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,26 +214,18 @@ command! -bang -nargs=* Fzf call fzf#vim#grep('rg --column --line-number --no-he
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nvim-completion-manager
+" ncm2 / compltions 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" smart tab for auto complete
-inoremap <expr> <silent> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr> <silent> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
 
-let g:ultisnipsexpandtrigger		= "<C-U>"
-let g:ultisnipsjumpforwardtrigger	= "<c-j>"
-let g:ultisnipsjumpbackwardtrigger	= "<c-k>"
-let g:ultisnipsremoveselectmodemappings = 0
-" optional
-inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
-map <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
-imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LanguageClient
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " Required for operations modifying multiple buffers like rename.
-" set hidden
+set hidden
 
 " let g:LanguageClient_serverCommands = {
     " \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
@@ -351,6 +377,11 @@ nnoremap <silent> <M-Right> :TmuxNavigateRight<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Space> <Leader>
 
+" File search
+noremap <leader>f :Files<cr>
+" File content search
+noremap <leader>F :Fzf<cr>
+
 " select all text in buffer
 map <Leader>a ggVG
 
@@ -369,7 +400,7 @@ vnoremap <leader>d "_d
 vnoremap <leader>p "_dP
 
 " Goyo (Focus / Fullscreen)
-map <Leader>f :Goyo<cr>
+map <Leader>Z :Goyo<cr>
 
 " Zoom (make current vim zoomed in tmux, respace windows)
 noremap <silent> <Leader>z :silent :!tmux resize-pane -Z<cr><c-w>=
