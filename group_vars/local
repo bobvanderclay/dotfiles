@@ -98,13 +98,13 @@ osx_cask_packages:
   - adobe-creative-cloud
   - astropad
   # Notetaking
-  - evernote
+  # - evernote
   # Fonts
   - fontexplorer-x-pro
   - skyfonts
   # font-ubuntu
   # Databases
-  - sequel-pro
+  - tableplus
   # VPN
 
 # Node utilities
