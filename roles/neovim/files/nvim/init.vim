@@ -14,7 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug '2072/PHP-Indenting-for-VIm'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'fleischie/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -75,7 +75,7 @@ Plug 'w0rp/ale'
 
 " Only for the transition.
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Productivity

@@ -103,6 +103,7 @@ local log = hs.logger.new('thing', 'debug')
 
 -- Apollo Console.
 hs.hotkey.bind({}, "F13", function() 
+    print("here")
     hs.eventtap.keyStroke({"cmd"}, "F10")
 end)
 
