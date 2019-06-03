@@ -1,2 +1,2 @@
 #!/bin/bash
-ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/local.yml --ask-sudo-pass
+ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/local.yml --ask-become-pass
