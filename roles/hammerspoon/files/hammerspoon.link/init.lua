@@ -1,5 +1,8 @@
 spaces = require("hs._asm.undocumented.spaces")
 
+hs.loadSpoon("RoundedCorners")
+spoon.RoundedCorners:start()
+
 -- local Audio = require "audio"
 -- local Media = require "media"
 -- local Switcher = require "switcher"
@@ -103,16 +106,16 @@ local log = hs.logger.new('thing', 'debug')
 
 -- Apollo Console.
 hs.hotkey.bind({}, "F13", function() 
-    print("here")
-    hs.eventtap.keyStroke({"cmd"}, "F10")
+    -- print("here")
+    hs.eventtap.keyStroke({"fn", "cmd"}, "F10")
 end)
 
 hs.hotkey.bind({}, "F14", function() 
-    hs.eventtap.keyStroke({"cmd"}, "F11")
+    hs.eventtap.keyStroke({"fn", "cmd"}, "F11")
 end)
 
 hs.hotkey.bind({}, "F15", function() 
-    hs.eventtap.keyStroke({"cmd"}, "F12")
+    hs.eventtap.keyStroke({"fn", "cmd"}, "F12")
 end)
 
 hs.hotkey.bind(mash, "F13", function ()
