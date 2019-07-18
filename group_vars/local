@@ -52,7 +52,6 @@ osx_homebrew_packages:
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
   # Browsers
-  - firefox
   - google-chrome
   # Utilities
   - iterm2
@@ -61,7 +60,6 @@ osx_cask_packages:
   # alfred
   - the-unarchiver
   - pdf-expert
-  - rescuetime
   # dev
   - github
   - kaleidoscope
@@ -83,11 +81,8 @@ osx_cask_packages:
   # - arq
   - backblaze
   # - dropbox
-  - google-backup-and-sync
   - google-drive-file-stream
   # Media/Music
-  # - spotify
-  # - google-play-music-desktop-player
   - steam
   # - airfoil
   - iina
@@ -96,7 +91,6 @@ osx_cask_packages:
   - sketch
   - sketchup
   - adobe-creative-cloud
-  - astropad
   # Notetaking
   # - evernote
   # Fonts
