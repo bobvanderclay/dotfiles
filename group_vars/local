@@ -60,7 +60,7 @@ osx_cask_packages:
   - alfred
   # alfred
   - the-unarchiver
-  - pdfexpert
+  - pdf-expert
   - rescuetime
   # dev
   - github

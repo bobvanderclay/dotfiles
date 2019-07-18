@@ -5,10 +5,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
 Plug 'ryanoasis/vim-devicons'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
@@ -29,60 +27,28 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-obsession'
 
 Plug 'machakann/vim-sandwich'
-" Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
-Plug 'justinmk/vim-sneak'
 Plug 'justinmk/vim-dirvish'
 Plug 'matze/vim-move'
 Plug 'christoomey/vim-tmux-navigator'
-
-Plug 'airblade/vim-gitgutter'
 
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'junegunn/vim-easy-align'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'jiangmiao/auto-pairs'
-Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
-Plug 'ap/vim-css-color'
 
 " Completion manager / Linting / Fixing
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'phpactor/ncm2-phpactor'
-Plug 'ncm2/ncm2-tagprefix'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-github'
-
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh',
-  \ }
-
-
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'ludovicchabant/vim-gutentags'
-" Plug 'ervandew/supertab'
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-Plug 'w0rp/ale'
-
-" Only for the transition.
-Plug 'majutsushi/tagbar'
-" Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'liuchengxu/vista.vim'
 
 " Productivity
 Plug 'plasticboy/vim-markdown'
-Plug 'junegunn/goyo.vim'
 Plug 'itspriddle/vim-marked'
-Plug 'reedes/vim-pencil'
 
 " Initialize plugin system
 call plug#end()
@@ -92,7 +58,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Editor settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabs
+" Tabsrch-nohlsearch)L
 set tabstop=4       " The width of a TAB is set to 4.
 set shiftwidth=4    " Indents will have a width of 4
 set softtabstop=4   " Sets the number of columns for a TAB
@@ -139,70 +105,139 @@ set list
 " netrw
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let NERDTreeMinimalUI=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OmniSharp
+" CoC 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OmniSharp won't work without this setting
-filetype plugin on
-"
-" Timeout in seconds to wait for a response from the server
-let g:OmniSharp_timeout = 5
-
-" Don't autoselect first omnicomplete option, show options even if there is only
-" one (so the preview documentation is accessible). Remove 'preview' if you
-" don't want to see any documentation whatsoever.
-set completeopt=longest,menuone,preview
-
-let g:OmniSharp_selector_ui = 'fzf'    " Use fzf.vim
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ALE 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_sign_error = 'x'
-let g:ale_sign_warning = '>'
-hi! link ALEErrorSign GruvboxRed
-hi! link ALEWarningSign GruvboxYellow
-
-let g:ale_php_cs_fixer_use_global = 1
-let g:ale_sign_column_always = 1
-let g:ale_fix_on_save = 1
-
-let g:ale_linters = {
-        \ 'cs': ['OmniSharp']
-    \ }
-
-let g:ale_fixers = {}
-let g:ale_fixers = {
-        \ 'javascript': ['eslint'],
-        \ 'php': ['php_cs_fixer'],
-    \ }
+let g:coc_global_extensions = [
+		\ 'coc-lists',
+		\ 'coc-json',
+		\ 'coc-tsserver',
+		\ 'coc-html',
+		\ 'coc-css',
+		\ 'coc-vetur',
+		\ 'coc-phpls',
+		\ 'coc-yaml',
+		\ 'coc-highlight',
+		\ 'coc-emmet',
+		\ 'coc-snippets',
+		\ 'coc-git',
+		\ 'coc-yank',
+	\ ]
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FZF
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Files command with preview window
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+" if hidden is not set, TextEdit might fail.
+set hidden
 
-" fzf / rg
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" --column: Show column number
-" --line-number: Show line number
-" --no-heading: Do not show file headings in results
-" --fixed-strings: Search term as a literal string
-" --ignore-case: Case insensitive search
-" --no-ignore: Do not respect .gitignore, etc...
-" --hidden: Search hidden files and folders
-" --follow: Follow symlinks
-" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-" --color: Search color options
-command! -bang -nargs=* Fzf call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+
+" Files
+nnoremap <silent> <space>p  :<C-u>CocList files<cr>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " EasyMotion
@@ -210,41 +245,29 @@ command! -bang -nargs=* Fzf call fzf#vim#grep('rg --column --line-number --no-he
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ultisnips
+" Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable extensions
+let g:airline_extensions = ['branch', 'hunks', 'coc']
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ncm2 / compltions 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+" Update section z to just have line number
+let g:airline_section_z = airline#section#create(['linenr'])
+
+" Smartly uniquify buffers names with similar filename, suppressing common parts of paths.
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" Configure error/warning section to use coc.nvim
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LanguageClient
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " Required for operations modifying multiple buffers like rename.
-set hidden
-
-" let g:LanguageClient_serverCommands = {
-    " \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    " \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
-    " \ }
-
-" " Automatically start language servers.
-" let g:LanguageClient_autoStart = 1
-
-" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Yggdroot/indentLine
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_char = '⎸'
-let g:indentLine_color_gui = '#3c3836'
-let g:indentLine_bgcolor_gui = '#282828'
+" let g:indentLine_color_gui = '#3c3836'
+" let g:indentLine_bgcolor_gui = '#282828'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tpope/vim-abolish
@@ -303,47 +326,6 @@ let g:closetag_shortcut = '>'
 "
 let g:closetag_close_shortcut = '<leader>>'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Goyo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! s:goyo_enter()
-  silent !tmux set status off
-  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  silent ALEDisable
-  set noshowmode
-  set noshowcmd
-endfunction
-
-function! s:goyo_leave()
-  silent !tmux set status on
-  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  silent ALEEnable
-  set showmode
-  set showcmd
-  
-  " Statusline
-  hi StatusLine guibg=NONE gui=NONE
-  hi StatusLineNC guibg=NONE gui=NONE
-  set statusline=%=%f
-
-  " General colors
-  hi vertsplit guifg='#3c3836' guibg='#282828'
-  hi LineNr guifg='#3c3836'
-
-  " GitGutter
-  set signcolumn=yes
-  hi clear SignColumn
-  hi! link GitGutterAdd GruvboxGreen
-  hi! link GitGutterChange GruvboxAqua
-  hi! link GitGutterDelete GruvboxRed
-  hi! link GitGutterChangeDelete GruvboxAqua
-
-  " Remove ~ from empty lines.
-  hi NonText guifg=bg
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI stuff
@@ -378,9 +360,9 @@ nnoremap <silent> <M-Right> :TmuxNavigateRight<cr>
 map <Space> <Leader>
 
 " File search
-noremap <leader>f :Files<cr>
+" noremap <leader>f :Files<cr>
 " File content search
-noremap <leader>F :Fzf<cr>
+" noremap <leader>F :Fzf<cr>
 
 " select all text in buffer
 map <Leader>a ggVG
@@ -399,9 +381,6 @@ vnoremap <leader>d "_d
 " without yanking it
 vnoremap <leader>p "_dP
 
-" Goyo (Focus / Fullscreen)
-map <Leader>Z :Goyo<cr>
-
 " Zoom (make current vim zoomed in tmux, respace windows)
 noremap <silent> <Leader>z :silent :!tmux resize-pane -Z<cr><c-w>=
 
@@ -411,13 +390,25 @@ noremap <silent> <Leader>z :silent :!tmux resize-pane -Z<cr><c-w>=
 
 " Truecolor
 if has("termguicolors")
-set termguicolors
+    set termguicolors
 endif
 
 " Theme
-let g:gruvbox_italic=1
-colorscheme gruvbox
-set background=dark
+" let g:gruvbox_italic=1
+" colorscheme gruvbox
+" set background=dark
+" Theme
+syntax enable
+syntax on
+  let g:oceanic_next_terminal_bold = 1
+  let g:oceanic_next_terminal_italic = 1
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+
+" Git bar
+hi! DiffAdd ctermbg=NONE guibg=NONE
+hi! DiffDelete ctermbg=NONE guibg=NONE
+hi! DiffChange ctermbg=NONE guibg=NONE
 
 " Statusline
 set noshowmode
@@ -426,19 +417,11 @@ set noshowmode
 " set statusline=%=%f
 
 " General colors
-hi vertsplit guifg='#3c3836' guibg='#282828'
-hi LineNr guifg='#3c3836'
+" hi vertsplit guifg='#3c3836' guibg='#282828'
+" hi LineNr guifg='#3c3836'
 
 " Airline
 let g:airline_powerline_fonts = 1
 
-" GitGutter
-set signcolumn=yes
-hi clear SignColumn
-hi! link GitGutterAdd GruvboxGreen
-hi! link GitGutterChange GruvboxAqua
-hi! link GitGutterDelete GruvboxRed
-hi! link GitGutterChangeDelete GruvboxAqua
-
 " Remove ~ from empty lines.
-hi NonText guifg=bg
+hi EndOfBuffer guifg=bg

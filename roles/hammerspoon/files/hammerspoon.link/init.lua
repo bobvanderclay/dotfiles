@@ -11,7 +11,7 @@ spoon.RoundedCorners:start()
 cmdAlt        = {"cmd", "alt"}
 ctrlAlt       = {"ctrl", "alt"}
 ctrlCmd       = {"ctrl", "cmd"}
-mash 	      = {"cmd", "alt", "ctrl"}
+mash 	      = {"cmd", "alt", "shift"}
 mashShift     = {"ctrl", "alt", "shift"}
 hyper         = {"cmd", "ctrl", "alt", "shift"}
 
@@ -105,30 +105,30 @@ local log = hs.logger.new('thing', 'debug')
 -- end)
 
 -- Apollo Console.
-hs.hotkey.bind({}, "F13", function() 
+hs.hotkey.bind({}, "F10", function() 
     -- print("here")
     hs.eventtap.keyStroke({"fn", "cmd"}, "F10")
 end)
 
-hs.hotkey.bind({}, "F14", function() 
+hs.hotkey.bind({}, "F11", function() 
     hs.eventtap.keyStroke({"fn", "cmd"}, "F11")
 end)
 
-hs.hotkey.bind({}, "F15", function() 
+hs.hotkey.bind({}, "F12", function() 
     hs.eventtap.keyStroke({"fn", "cmd"}, "F12")
 end)
 
-hs.hotkey.bind(mash, "F13", function ()
+hs.hotkey.bind(mash, "F10", function ()
     hs.eventtap.event.newSystemKeyEvent("PREVIOUS", true):post()    
     hs.eventtap.event.newSystemKeyEvent("PREVIOUS", false):post()    
 end)
 
-hs.hotkey.bind(mash, "F14", function ()
+hs.hotkey.bind(mash, "F11", function ()
     hs.eventtap.event.newSystemKeyEvent("PLAY", true):post()    
     hs.eventtap.event.newSystemKeyEvent("PLAY", false):post()    
 end)
 
-hs.hotkey.bind(mash, "F15", function ()
+hs.hotkey.bind(mash, "F12", function ()
     hs.eventtap.event.newSystemKeyEvent("NEXT", true):post()    
     hs.eventtap.event.newSystemKeyEvent("NEXT", false):post()    
 end)
