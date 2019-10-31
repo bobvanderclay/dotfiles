@@ -2,5 +2,5 @@
   homebrew: name=dnsmasq state=latest
 
 - name: Run dnsmasq install script
-  script: setup_dnsmasq.sh creates=/etc/resolver/dev
+  script: setup_dnsmasq.sh creates=/etc/resolver/test
   become: yes

@@ -57,16 +57,15 @@ osx_cask_packages:
   - iterm2
   - ngrok
   - alfred
-  # alfred
   - the-unarchiver
-  - pdf-expert
+  # - pdf-expert
   # dev
   - github
   - kaleidoscope
   - tower
   # atom
   - visual-studio-code
-  - postman
+  # - postman
   # Vagrant/Virtualbox
   - vagrant
   # virtualbox
@@ -85,11 +84,11 @@ osx_cask_packages:
   # Media/Music
   - steam
   # - airfoil
-  - iina
-  - beardedspice
+  # - iina
+  # - beardedspice
   # Images
   - sketch
-  - sketchup
+  # - sketchup
   - adobe-creative-cloud
   # Notetaking
   # - evernote
