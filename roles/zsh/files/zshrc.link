@@ -73,3 +73,5 @@ eval "$(thefuck --alias)"
 eval "$(dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.ansi-universal)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /Users/bob/Library/Preferences/org.dystroy.broot/launcher/bash/br

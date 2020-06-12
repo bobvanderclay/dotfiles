@@ -1,0 +1,15 @@
+- homebrew_tap:
+    name: daviderestivo/emacs-head
+
+- name: Install Emacs HEAD on macOS with homebrew
+    - homebrew: 
+        name: emacs-head
+        state: head 
+        install_options: with-cocoa,with-imagemagick,with-jansson
+
+- name: Link Emacs GUI to Applications directory.
+    file:
+      src: "/usr/local/opt/emacs-head/Emacs.app"
+      dest: "/Applications/Emacs.app"
+      state: link
+

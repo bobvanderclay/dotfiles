@@ -45,7 +45,6 @@ osx_homebrew_packages:
   - jq
   - jid
   - ansiweather
-  - mpv
   - exa
   - glances
 
@@ -78,7 +77,7 @@ osx_cask_packages:
   - 1password
   # Backup/storage
   # - arq
-  - backblaze
+#  - backblaze
   # - dropbox
   - google-drive-file-stream
   # Media/Music
