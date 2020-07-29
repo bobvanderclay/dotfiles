@@ -1,6 +1,6 @@
 [bar/mybar]
 modules-left = bspwm
-modules-right = battery date
+modules-right = battery date time
 
 font-0 = "DejaVu Sans:size=14;0"
 font-1 = "Fira Code:size=14;0"
@@ -42,8 +42,15 @@ label-focused-foreground = #03a9f4
 
 [module/date]
 type = internal/date
+format = %{T3}%{T-} <label>
 date = %Y-%m-%d%
+label = %date%
+
+[module/time]
+type = internal/date
+format = %{T3}%{T-} <label>
 time = %H:%M
+label = %time%
 
 [module/wireless-network]
 type = internal/network
