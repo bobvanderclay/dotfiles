@@ -2,6 +2,9 @@
 modules-left = bspwm
 modules-right = battery date
 
+font-0 = "DejaVu Sans:size=14;0"
+font-1 = "Fira Code:size=14;0"
+font-2 = "Font Awesome 5 Free Solid:size=14;0"
 height=64
 dpi=192
 background = #00000000
@@ -14,9 +17,22 @@ card = intel_backlight
 
 [module/battery]
 type = internal/battery
+full-at = 99
 
 battery = BAT0
 adapter = AC
+
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-charging = %{T3}%{T-} %percentage%%
+label-discharging = %percentage%%
+
+ramp-capacity-font = 3
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 [module/bspwm]
 type = internal/bspwm
