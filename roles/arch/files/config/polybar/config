@@ -1,0 +1,36 @@
+[bar/mybar]
+modules-left = bspwm
+modules-right = battery date
+
+height=64
+dpi=192
+background = #00000000
+padding = 2
+module-margin = 1
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+
+[module/battery]
+type = internal/battery
+
+battery = BAT0
+adapter = AC
+
+[module/bspwm]
+type = internal/bspwm
+enable-scroll = false
+fuzzy-match = true
+label-focused-foreground = #03a9f4
+
+[module/date]
+type = internal/date
+date = %Y-%m-%d%
+time = %H:%M
+
+[module/wireless-network]
+type = internal/network
+interface = wlan1
+format-connected = <label-connected>
+
