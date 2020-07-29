@@ -4,7 +4,7 @@
 
 ### Mac ###
 
-curl -s https://raw.githubusercontent.com/takitapart/dotfiles/master/bootstrap/mac | bash
+curl -s https://raw.githubusercontent.com/bobvanderclay/dotfiles/master/bootstrap/mac | bash
 
 ### TODO ###
 

@@ -1,0 +1,5 @@
+configuration {
+	modi: "window,run,ssh,combi,keys,drun";
+	font: "mono 42";
+	show-icons: true;
+}
