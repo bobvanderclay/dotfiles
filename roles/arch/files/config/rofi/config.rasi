@@ -1,5 +1,50 @@
 configuration {
 	modi: "window,run,ssh,combi,keys,drun";
-	font: "mono 42";
+	font: "Breeze Sans 36";
 	show-icons: true;
+    display-drun: "";
+    display-window: "";
+}
+
+* {
+    background: rgba(255,255,255,0.6);
+    transparent: rgba(0,0,0,0);
+
+    fg: #263238;
+
+    background-color: @transparent;
+}
+
+window {
+    background-color: @background;
+    border-radius: 32px;
+    padding: 32px;
+}
+
+mainbox {
+}
+
+inputbar {
+}
+
+prompt {
+    enabled: false;
+}
+
+entry {
+    color: @fg;
+    font: "Breeze Sans 48";
+    padding: 8px 32px;
+}
+
+element {
+    color: @fg;
+    padding: 8px 16px;
+}
+
+element selected  {
+    background-color: #30405010;
+}
+
+element-icon {
 }

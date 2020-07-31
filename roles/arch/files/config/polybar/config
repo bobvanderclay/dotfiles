@@ -1,15 +1,30 @@
+[colors]
+; Material Design
+white = #fff
+foreground = #fff
+background = #263238
+red = #c66
+yellow = #f0c674
+green = #b5bd68
+teal = #8abeb7
+blue = #81a2be
+purple = #b294bb
+
 [bar/mybar]
 modules-left = bspwm
-modules-right = battery date time
+modules-center = music
+modules-right = weather battery time
 
-font-0 = "DejaVu Sans:size=14;0"
-font-1 = "Fira Code:size=14;0"
-font-2 = "Font Awesome 5 Free Solid:size=14;0"
-height=64
+font-0 = "BreezeSans:style=Regular Condensed:size=14;16"
+font-1 = "FiraCode Nerd Font:size=14;16"
+font-2 = "Font Awesome 5 Free Solid:size=14;16"
+font-3 = "Weather Icons:size=14;16"
+
+height=56
 dpi=192
 background = #00000000
-padding = 2
-module-margin = 1
+padding = 4
+module-margin = 2
 
 [module/backlight]
 type = internal/backlight
@@ -37,20 +52,46 @@ ramp-capacity-4 = 
 [module/bspwm]
 type = internal/bspwm
 enable-scroll = false
-fuzzy-match = true
-label-focused-foreground = #03a9f4
+fuzzy-match = false
+label-focused-foreground = ${colors.blue}
+label-occupied-foreground = ${colors.yellow}
+label-font = 2
+label-focused = %icon%
+label-focused-padding = 2
+label-occupied = %icon%
+label-occupied-padding = 2
+label-urgent = %icon%
+label-urgent-padding = 2
+label-empty = %icon%
+label-empty-padding = 2
+ws-icon-0 = I;
+ws-icon-1 = II;
+ws-icon-2 = III;ﱘ
+ws-icon-3 = IV;
+ws-icon-4 = V;
+ws-icon-5 = VI;ﴱ
+ws-icon-6 = VII;
+ws-icon-7 = VIII;
+ws-icon-8 = IX;
+ws-icon-9 = X;
 
-[module/date]
-type = internal/date
-format = %{T3}%{T-} <label>
-date = %Y-%m-%d%
-label = %date%
+[module/music]
+type = custom/script
+exec = ~/.config/polybar/scripts/playerctl.sh
+label = %{T2}%{F#b5bd68}%{F-}%{T-}   %output%
+interval = 3
 
 [module/time]
 type = internal/date
-format = %{T3}%{T-} <label>
-time = %H:%M
+format = %{T3}%{T-}  <label>
+time = %a  %H:%M
 label = %time%
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/openweathermap.sh
+interval = 600
+label-font = 4
 
 [module/wireless-network]
 type = internal/network

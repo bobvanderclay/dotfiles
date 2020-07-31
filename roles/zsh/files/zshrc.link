@@ -74,4 +74,6 @@ eval "$(dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.ansi-uni
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/bob/Library/Preferences/org.dystroy.broot/launcher/bash/br
+# source /Users/bob/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+source /home/bob/.config/broot/launcher/bash/br
