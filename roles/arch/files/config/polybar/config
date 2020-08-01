@@ -13,7 +13,7 @@ purple = #b294bb
 [bar/mybar]
 modules-left = bspwm
 modules-center = music
-modules-right = weather battery time
+modules-right = battery time
 
 font-0 = "BreezeSans:style=Regular Condensed:size=14;16"
 font-1 = "FiraCode Nerd Font:size=14;16"

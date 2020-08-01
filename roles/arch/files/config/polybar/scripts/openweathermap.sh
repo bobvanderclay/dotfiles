@@ -52,7 +52,7 @@ get_duration() {
 
 }
 
-KEY="23370f787250ba91fcff134ca85fc1e4"
+KEY=""
 CITY="5511077"
 UNITS="imperial"
 SYMBOL="°"
