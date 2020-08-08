@@ -1,3 +1,4 @@
+#+BEGIN_SRC emacs-lisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
@@ -52,7 +53,12 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+#+END_SRC
 
+* Treemacs
+
+* Themes
+#+BEGIN_SRC emacs-lisp
 (use-package! doom-themes
     ;; :init (load-theme 'doom-one t)
     :config
@@ -64,8 +70,12 @@
 
     ;; Enable custom treemacs theme (all-the-icons must be installed!)
     (doom-themes-treemacs-config))
+#+END_SRC
 
+* All the icons
+#+BEGIN_SRC emacs-lisp
 (use-package! all-the-icons)
 (use-package! all-the-icons-dired
   :config
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+ #+END_SRC

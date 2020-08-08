@@ -4,8 +4,10 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
+Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ryanoasis/vim-devicons'
 
 " Syntax
@@ -397,15 +399,26 @@ endif
 " let g:gruvbox_italic=1
 " colorscheme gruvbox
 " set background=dark
+
 " Theme
 syntax enable
 syntax on
-  let g:oceanic_next_terminal_bold = 1
-  let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
-let g:airline_theme='oceanicnext'
+
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" colorscheme OceanicNext
+" let g:airline_theme='oceanicnext'
+
+set background=dark
+let g:enable_bold_font=1
+let g:enable_italic_font=1
+let g:hybrid_transparent_background=1
+colorscheme hybrid_material
+let g:airline_theme='hybrid'
 
 " Git bar
+" let g:gitgutter_set_sign_background=1
+hi! SignColumn guibg=NONE cterm=NONE
 hi! DiffAdd ctermbg=NONE guibg=NONE
 hi! DiffDelete ctermbg=NONE guibg=NONE
 hi! DiffChange ctermbg=NONE guibg=NONE
