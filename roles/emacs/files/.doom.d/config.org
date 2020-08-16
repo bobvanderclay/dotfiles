@@ -123,6 +123,14 @@ configuration may vary. This should cover most options.
 ;; Include current clocking task in clock reports
 #+END_SRC
 
+** org-gcal
+
+Calendar config is externally stored to protect API keys.
+
+#+BEGIN_SRC emacs-lisp
+(load! "~/secrets/emacs/org-gcal.el")
+#+END_SRC
+
 * Treemacs
 
 * Themes
