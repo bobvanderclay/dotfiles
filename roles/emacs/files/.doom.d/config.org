@@ -74,6 +74,25 @@ configuration may vary. This should cover most options.
 ** T O D O keywords
 
 #+BEGIN_SRC emacs-lisp
+(after! org
+  (setq org-todo-keyword-faces
+        '(("HOLD" . "orange")
+          ("DONT" . "grey")))
+
+  (setq org-todo-keywords
+      (quote ((sequence
+               "TODO(t)"
+               "NEXT(n)"
+               "|"
+               "DONE(d)")
+              (sequence
+               "HOLD(h/!)"
+               "WAIT(w@/!)"
+               "|"
+               "CANC(c@/!)"
+               "DONT(D/!)"
+               "CALL"
+               "MEET")))))
 #+END_SRC
 
 ** Logging
@@ -81,25 +100,26 @@ configuration may vary. This should cover most options.
 (setq org-log-done (quote time))
 (setq org-log-into-drawer t)
 (setq org-log-state-notes-insert-after-drawers nil)
+(setq org-treat-S-cursor-todo-selection-as-state-change nil)
 #+END_SRC
 
 ** Clocking
 #+BEGIN_SRC emacs-lisp
 ;; Change tasks to whatever when clocking in
-(setq org-clock-in-switch-to-state "NEXT")
+;; (setq org-clock-in-switch-to-state "NEXT")
 ;; Save clock data and state changes and notes in the LOGBOOK drawer
-(setq org-clock-into-drawer t)
+;; (setq org-clock-into-drawer t)
 ;; Sometimes I change tasks I'm clocking quickly - this removes clocked tasks
 ;; with 0:00 duration
-(setq org-clock-out-remove-zero-time-clocks t)
+;; (setq org-clock-out-remove-zero-time-clocks t)
 ;; Clock out when moving task to a done state
-(setq org-clock-out-when-done t)
+;; (setq org-clock-out-when-done t)
 ;; Save the running clock and all clock history when exiting Emacs, load it on startup
-(setq org-clock-persist t)
+;; (setq org-clock-persist t)
 ;; Do not prompt to resume an active clock
-(setq org-clock-persist-query-resume nil)
+;; (setq org-clock-persist-query-resume nil)
 ;; Enable auto clock resolution for finding open clocks
-(setq org-clock-auto-clock-resolution (quote when-no-clock-is-running))
+;; (setq org-clock-auto-clock-resolution (quote when-no-clock-is-running))
 ;; Include current clocking task in clock reports
 #+END_SRC
 
