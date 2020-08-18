@@ -71,6 +71,12 @@ configuration may vary. This should cover most options.
 
 * Org
 
+** Autosave
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'auto-save-hook 'org-save-all-org-buffers)
+#+END_SRC
+
 ** T O D O keywords
 
 #+BEGIN_SRC emacs-lisp

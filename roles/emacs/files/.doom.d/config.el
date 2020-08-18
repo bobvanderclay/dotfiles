@@ -58,6 +58,8 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+(add-hook 'auto-save-hook 'org-save-all-org-buffers)
+
 (after! org
   (setq org-todo-keyword-faces
         '(("HOLD" . "orange")
