@@ -64,7 +64,7 @@
 
 (after! org
   (setq org-todo-keyword-faces
-        '(("HOLD" . "orange")
+        '(("MAYB" . "orange")
           ("DONT" . "grey")))
 
   (setq org-todo-keywords
@@ -75,13 +75,12 @@
                "DONE(d)")
               (sequence
                "MAYB(m/!)"
-               "HOLD(h/!)"
                "WAIT(w@/!)"
                "|"
                "KILL(k@/!)"
                "DONT(D/!)"
-               "CALL"
-               "MEET")))))
+               "CALL(c)"
+               "MEET(e)")))))
 
 (setq org-log-done (quote time))
 (setq org-log-into-drawer t)

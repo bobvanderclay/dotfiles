@@ -92,7 +92,7 @@ configuration may vary. This should cover most options.
 #+BEGIN_SRC emacs-lisp
 (after! org
   (setq org-todo-keyword-faces
-        '(("HOLD" . "orange")
+        '(("MAYB" . "orange")
           ("DONT" . "grey")))
 
   (setq org-todo-keywords
@@ -103,13 +103,12 @@ configuration may vary. This should cover most options.
                "DONE(d)")
               (sequence
                "MAYB(m/!)"
-               "HOLD(h/!)"
                "WAIT(w@/!)"
                "|"
                "KILL(k@/!)"
                "DONT(D/!)"
-               "CALL"
-               "MEET")))))
+               "CALL(c)"
+               "MEET(e)")))))
 #+END_SRC
 
 ** Logging
