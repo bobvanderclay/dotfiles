@@ -74,10 +74,11 @@
                "|"
                "DONE(d)")
               (sequence
+               "MAYB(m/!)"
                "HOLD(h/!)"
                "WAIT(w@/!)"
                "|"
-               "CANC(c@/!)"
+               "KILL(k@/!)"
                "DONT(D/!)"
                "CALL"
                "MEET")))))

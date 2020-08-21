@@ -102,10 +102,11 @@ configuration may vary. This should cover most options.
                "|"
                "DONE(d)")
               (sequence
+               "MAYB(m/!)"
                "HOLD(h/!)"
                "WAIT(w@/!)"
                "|"
-               "CANC(c@/!)"
+               "KILL(k@/!)"
                "DONT(D/!)"
                "CALL"
                "MEET")))))
