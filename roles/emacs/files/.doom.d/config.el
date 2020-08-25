@@ -60,6 +60,22 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+(defvar gs-org-agenda-block--today-schedule
+  '(agenda "" ((org-agenda-overriding-header "Today's Schedule:")
+        (org-agenda-span 'day)
+        (org-agenda-ndays 1)
+        (org-agenda-start-on-weekday nil)
+        (org-agenda-start-day "+0d")))
+  "A block showing a 1 day schedule.")
+
+(setq org-agenda-custom-commands
+      '(("W" "Export Schedule"
+         (,gs-org-agenda-block--today-schedule)))
+      '(("L" "TESTING"
+   (tags-todo "DEADLINE<=\"<+7d>\""
+   ((org-agenda-overriding-header "Due soon")))
+         )))
+
 (add-hook 'auto-save-hook 'org-save-all-org-buffers)
 
 (after! org

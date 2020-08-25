@@ -26,6 +26,9 @@ background = #00000000
 padding = 4
 module-margin = 2
 
+tray-position = center
+tray-scale = 2.0
+
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
