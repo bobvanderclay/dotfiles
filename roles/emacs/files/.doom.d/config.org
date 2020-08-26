@@ -83,24 +83,13 @@ configuration may vary. This should cover most options.
 ** Agenda
 
 #+BEGIN_SRC emacs-lisp
-(defvar gs-org-agenda-block--today-schedule
-  '(agenda "" ((org-agenda-overriding-header "Today's Schedule:")
-        (org-agenda-span 'day)
-        (org-agenda-ndays 1)
-        (org-agenda-start-on-weekday nil)
-        (org-agenda-start-day "+0d")))
-  "A block showing a 1 day schedule.")
-#+END_SRC
-
-
-#+BEGIN_SRC emacs-lisp
 (setq org-agenda-custom-commands
-      '(("W" "Export Schedule"
-         (,gs-org-agenda-block--today-schedule)))
-      '(("L" "TESTING"
-   (tags-todo "DEADLINE<=\"<+7d>\""
-   ((org-agenda-overriding-header "Due soon")))
-         )))
+      '(("c" "Simple agenda view"
+         ((tags "PRIORITY=\"A\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
+          (agenda "")
+          (alltodo "")))))
 #+END_SRC
 
 ** Autosave
