@@ -62,9 +62,10 @@
 
 (setq org-agenda-custom-commands
       '(("c" "Simple agenda view"
-         ((tags "PRIORITY=\"A\""
-                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
+         ((tags "TODO=\"TODO\""
+                ((org-agenda-todo-list-sublevels nil)
+                 (org-agenda-prefix-format '((tags . " %i %b %-12:c")))
+                 (org-agenda-overriding-header "Projects")))
           (agenda "")
           (alltodo "")))))
 
@@ -85,9 +86,7 @@
                "MAYB(m/!)"
                "WAIT(w@/!)"
                "|"
-               "KILL(k@/!)"
-               "DONT(D/!)"
-               "CALL(c)"
+               "DEAD(k@/!)"
                "MEET(e)")))))
 
 (setq org-log-done (quote time))
