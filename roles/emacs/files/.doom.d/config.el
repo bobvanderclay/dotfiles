@@ -64,7 +64,7 @@
       '(("c" "Simple agenda view"
          ((tags "TODO=\"TODO\""
                 ((org-agenda-todo-list-sublevels nil)
-                 (org-agenda-prefix-format '((tags . " %i %b %-12:c")))
+                 (org-agenda-prefix-format '((tags . " %i %-12:c %b")))
                  (org-agenda-overriding-header "Projects")))
           (agenda "")
           (alltodo "")))))
