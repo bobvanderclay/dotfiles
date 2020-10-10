@@ -44,7 +44,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 
 " Completion manager / Linting / Fixing
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': './install.sh'}
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'liuchengxu/vista.vim'
 
