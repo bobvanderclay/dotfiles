@@ -48,6 +48,7 @@ osx_homebrew_packages:
   - exa
   - glances
   - broot
+  - borgbackup
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
