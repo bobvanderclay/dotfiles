@@ -25,5 +25,4 @@
     - php
     - go
     - emacs
-    - asdf
     - {role: hammerspoon, when: ansible_os_family == "Darwin"}
