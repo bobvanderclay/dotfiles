@@ -11,7 +11,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'glepnir/oceanic-material'
 Plug 'adrian5/oceanic-next-vim'
 " Plug 'ryanoasis/vim-devicons'
-Plug 'wfxr/minimap.vim'
+" Plug 'wfxr/minimap.vim'
 
 
 " Syntax
@@ -131,6 +131,7 @@ let g:coc_global_extensions = [
 		\ 'coc-snippets',
 		\ 'coc-git',
 		\ 'coc-yank',
+        \ 'coc-prettier',
 	\ ]
 
 
@@ -267,6 +268,10 @@ xnoremap          [fzf-p]gr    "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F
 nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
 nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
 nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
+
+" ------
+"  coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

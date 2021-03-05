@@ -57,7 +57,7 @@ osx_cask_packages:
   # Utilities
   - iterm2
   - ngrok
-    # - alfred
+  # - alfred
   - the-unarchiver
   # - pdf-expert
   # dev
@@ -76,7 +76,7 @@ osx_cask_packages:
   - slack
   - skype
   # Password manager
-  - 1password
+  # - 1password
   # Backup/storage
   # - arq
   - backblaze
