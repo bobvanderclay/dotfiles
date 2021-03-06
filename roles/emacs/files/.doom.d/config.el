@@ -111,7 +111,7 @@
 ;; (setq org-clock-auto-clock-resolution (quote when-no-clock-is-running))
 ;; Include current clocking task in clock reports
 
-(load! "~/secrets/emacs/org-gcal.el")
+;; (load! "~/secrets/emacs/org-gcal.el")
 
 (use-package! doom-themes
     ;; :init (load-theme 'doom-one t)
