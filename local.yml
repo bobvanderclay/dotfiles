@@ -5,7 +5,7 @@
 - name: Set up local development environment
   hosts: local
   roles:
-    - {role: osx, when: ansible_os_family == "Darwin"}
+#    - {role: osx, when: ansible_os_family == "Darwin"}
     - git
     - zsh
     - vim
@@ -25,5 +25,5 @@
     - php
     - go
     - emacs
-    - asdf
+#    - asdf
     - {role: hammerspoon, when: ansible_os_family == "Darwin"}
