@@ -1,0 +1,20 @@
+- include: osx.yml
+  when: ansible_os_family == "Darwin"
+
+# Doom config.
+- name: Check if ~/.doom.d exists
+  stat: path="{{dotfiles_user_home}}/.doom.d"
+  register: doom_stat
+
+- name: Back up ~/.doom.d if exists
+  command: mv ~/.doom.d ~/.doom.d.bak
+  args:
+    creates: "~/.doom.d.bak"
+  when: doom_stat.stat.exists
+
+- name: Link ~/.doom.d folder
+  file:
+    src: "{{ dotfiles_home }}/roles/emacs/files/.doom.d"
+    dest: "~/.doom.d"
+    state: link
+    force: yes
