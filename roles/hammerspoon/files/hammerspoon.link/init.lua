@@ -1,7 +1,4 @@
-spaces = require("hs._asm.undocumented.spaces")
-
-hs.loadSpoon("RoundedCorners")
-spoon.RoundedCorners:start()
+-- spaces = require("hs._asm.undocumented.spaces")
 
 -- local Audio = require "audio"
 -- local Media = require "media"
@@ -20,7 +17,6 @@ hyper         = {"cmd", "ctrl", "alt", "shift"}
 -- require "highlight"
 
 -- require "redshift"
-require "spaces"
 require "layout"
 require "window"
 
@@ -73,8 +69,8 @@ hs.hotkey.bind(mash, "down", function()
   local center = hs.geometry.rectMidPoint(rect)
   hs.mouse.setAbsolutePosition(center)
 end)
-hs.hotkey.bind(mash, 'left', nil, function() moveToSpaceInDirection(hs.window.focusedWindow(), "west") end)
-hs.hotkey.bind(mash, 'right', nil, function() moveToSpaceInDirection(hs.window.focusedWindow(), "east") end)
+-- hs.hotkey.bind(mash, 'left', nil, function() moveToSpaceInDirection(hs.window.focusedWindow(), "west") end)
+-- hs.hotkey.bind(mash, 'right', nil, function() moveToSpaceInDirection(hs.window.focusedWindow(), "east") end)
 
 --
 -- hs.hotkey.bind({ "alt" }, "tab", hs.hints.windowHints)
