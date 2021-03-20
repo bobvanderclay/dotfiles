@@ -64,9 +64,13 @@
 (setq-default line-spacing 2)
 #+END_SRC
 
+** Icons
+
+#+begin_src emacs-lisp
+(setq all-the-icons-color-icons t)
+#+end_src
 
 * Mac
-
 ** Command key as Meta
 Depending on what version of MacOS Native GUI is running, the
 configuration may vary. This should cover most options.
@@ -78,6 +82,16 @@ configuration may vary. This should cover most options.
 (setq mac-option-modifier nil)
 #+END_SRC
 
+** Render fonts thinner
+#+BEGIN_SRC emacs-lisp
+(setq ns-use-thin-smoothing t)
+#+END_SRC
+
+** Transparent Emacs titlebar.
+#+begin_src
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+#+end_src
 
 * Org
 ** Agenda
@@ -121,6 +135,17 @@ configuration may vary. This should cover most options.
                "MEET(e)")))))
 #+END_SRC
 
+** Capture
+
+*** Journal
+#+BEGIN_SRC emacs-lisp
+;; (add-to-list 'org-capture-templates
+;;              '("l" "Log Time" entry
+;;                (file+datetree "~/org/journal_2021.org" )
+;;                "** %U - %^{Activity}"))
+#+END_SRC
+
+
 ** Logging
 #+BEGIN_SRC emacs-lisp
 (setq org-log-done (quote time))
@@ -158,6 +183,33 @@ Calendar config is externally stored to protect API keys.
 #+END_SRC
 
 * Treemacs
+
+** General
+The doom-themes package forces treemacs to use a variable-pitch font. Disable this.
+#+begin_src emacs-lisp
+(setq doom-themes-treemacs-enable-variable-pitch nil)
+#+end_src
+
+** Fonts
+#+begin_src emacs-lisp
+    ;; (dolist (face '(treemacs-root-face
+    ;;                 treemacs-git-unmodified-face
+    ;;                 treemacs-git-modified-face
+    ;;                 treemacs-git-renamed-face
+    ;;                 treemacs-git-ignored-face
+    ;;                 treemacs-git-untracked-face
+    ;;                 treemacs-git-added-face
+    ;;                 treemacs-git-conflict-face
+    ;;                 treemacs-directory-face
+    ;;                 treemacs-directory-collapsed-face
+    ;;                 treemacs-file-face
+    ;;                 treemacs-tags-face))
+    ;;   (set-face-attribute face nil :family "Iosevka Term" :height 140))
+#+end_src
+
+** Colors
+#+begin_src emacs-lisp
+#+end_src
 
 * Themes
 #+BEGIN_SRC emacs-lisp

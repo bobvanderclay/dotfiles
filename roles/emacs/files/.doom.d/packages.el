@@ -11,6 +11,7 @@
 (package! pdf-tools)
 (package! all-the-icons)
 (package! all-the-icons-dired)
+(package! treemacs-all-the-icons)
 (package! default-text-scale)
 (package! org-gcal)
 

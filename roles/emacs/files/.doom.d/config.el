@@ -55,10 +55,14 @@
 
 (setq-default line-spacing 2)
 
+(setq all-the-icons-color-icons t)
+
 (setq mac-option-key-is-meta nil)
 (setq mac-command-key-is-meta t)
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
+
+(setq ns-use-thin-smoothing t)
 
 (setq org-agenda-custom-commands
       '(("c" "Simple agenda view"
@@ -89,6 +93,11 @@
                "DEAD(k@/!)"
                "MEET(e)")))))
 
+;; (add-to-list 'org-capture-templates
+;;              '("l" "Log Time" entry
+;;                (file+datetree "~/org/journal_2021.org" )
+;;                "** %U - %^{Activity}"))
+
 (setq org-log-done (quote time))
 (setq org-log-into-drawer t)
 (setq org-log-state-notes-insert-after-drawers nil)
@@ -112,6 +121,24 @@
 ;; Include current clocking task in clock reports
 
 ;; (load! "~/secrets/emacs/org-gcal.el")
+
+(setq doom-themes-treemacs-enable-variable-pitch nil)
+
+;; (dolist (face '(treemacs-root-face
+;;                 treemacs-git-unmodified-face
+;;                 treemacs-git-modified-face
+;;                 treemacs-git-renamed-face
+;;                 treemacs-git-ignored-face
+;;                 treemacs-git-untracked-face
+;;                 treemacs-git-added-face
+;;                 treemacs-git-conflict-face
+;;                 treemacs-directory-face
+;;                 treemacs-directory-collapsed-face
+;;                 treemacs-file-face
+;;                 treemacs-tags-face))
+;;   (set-face-attribute face nil :family "Iosevka Term" :height 140))
+
+
 
 (use-package! doom-themes
     ;; :init (load-theme 'doom-one t)
