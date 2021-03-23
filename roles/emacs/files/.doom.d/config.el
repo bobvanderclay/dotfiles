@@ -93,10 +93,12 @@
                "DEAD(k@/!)"
                "MEET(e)")))))
 
-;; (add-to-list 'org-capture-templates
-;;              '("l" "Log Time" entry
-;;                (file+datetree "~/org/journal_2021.org" )
-;;                "** %U - %^{Activity}"))
+(after! org
+  (setq org-capture-templates
+        '(("j" "Journal" entry (file+olp+datetree "~/org/journal_2021.org")
+           "** %U - %?")
+          ("c" "2C Journal" entry (file+olp+datetree "~/org/journal_2021.org")
+           "** %U - %? :2C:"))))
 
 (setq org-log-done (quote time))
 (setq org-log-into-drawer t)
