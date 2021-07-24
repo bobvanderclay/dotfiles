@@ -12,6 +12,7 @@
     - neovim
     - fzf
 #    - python
+    - anaconda
     - node
 #    - hub
 #    - autoenv

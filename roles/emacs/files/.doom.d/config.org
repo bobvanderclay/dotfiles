@@ -125,6 +125,7 @@ configuration may vary. This should cover most options.
       (quote ((sequence
                "TODO(t)"
                "NEXT(n)"
+               "OPEN(o)"
                "|"
                "DONE(d)")
               (sequence
@@ -132,19 +133,34 @@ configuration may vary. This should cover most options.
                "WAIT(w@/!)"
                "|"
                "DEAD(k@/!)"
-               "MEET(e)")))))
+               "MEET(e)")
+              (sequence
+               "WANT(b@/!)"
+               "SELL(s@/!)"
+               "GIVE(g@/!)"
+               "|"
+               "HAVE(h@/!)"
+               "SOLD(l@/!)"
+               "DUMP(p@/!)"
+               "GAVE(v@/!)")))))
 #+END_SRC
 
 ** Capture
 
-*** Journal
 #+BEGIN_SRC emacs-lisp
 (after! org
   (setq org-capture-templates
-        '(("j" "Journal" entry (file+olp+datetree "~/org/journal_2021.org")
+        '(("j" "Journal")
+          ("jj" "Standard Journal" entry (file+olp+datetree "~/org/journal_2021.org")
            "** %U - %?")
-          ("c" "2C Journal" entry (file+olp+datetree "~/org/journal_2021.org")
-           "** %U - %? :2C:"))))
+          ("j2" "2C Journal" entry (file+olp+datetree "~/org/journal_2021.org")
+           "** %U - %? :2C:")
+          ("i" "Inventory")
+          ("iw" "Inventory WANT (w)" entry (file+olp "~/org/me.org" "INBOX")
+           "* WANT %?")
+          ("t" "Tasks")
+          ("tt" "Task TODO (t)" entry (file+olp "~/org/me.org" "INBOX")
+           "** TODO %?"))))
 #+END_SRC
 
 
